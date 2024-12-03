@@ -21,14 +21,14 @@ repository               : "academicpages/academicpages.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.HEIC"
+  avatar           : "profile.png"
   name             : "Qianyi Chen"
   pronouns         : # example: "she/her"  
   bio              : "Ph.D. Candidate at School of Economics and Management of Tsinghua University"
   location         : "Beijing, China"
   employer         : "Tsinghua University"
   uri              : # URL
-  email            : "cqy22 AT mails.tsinghua.edu.cn" 
+  email            : "cqy22@mails.tsinghua.edu.cn" 
 
   # Academic websites
   # arxiv            : # URL - Update with the correct link to your profile
