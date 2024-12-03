@@ -21,7 +21,7 @@ repository               : "academicpages/academicpages.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "./profile.png"
+  avatar           : "images/profile.png"
   name             : "Qianyi Chen"
   pronouns         : # example: "she/her"  
   bio              : "Ph.D. Candidate at School of Economics and Management of Tsinghua University"
