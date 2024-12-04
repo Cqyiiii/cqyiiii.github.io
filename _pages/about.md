@@ -56,10 +56,10 @@ Probability and Statistics at Tsinghua University (Fall 2022, 2023, 2024; TA; wi
 ## Experience
 
 - Tencent, Wechat Group\\
-  Algorithm Developer (Remote Research Intern)\\
+  (Remote) Research Intern, Algorithm Developer\\
   Aug. 2022 - Jul. 2023
   
 
 - ByteDance, Data \\
-  Machine Learning Algorithm Engineer\\
+  Intern, Machine Learning Algorithm Engineer\\
   Jul. 2021 – Nov. 2021
