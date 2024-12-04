@@ -17,7 +17,7 @@ My research interests span causal inference, machine learning, and network scien
 
 
 ## Preprints
-======
+<!-- ====== -->
 - Just Ramp-up: Unleash the Potential of Regression-based Estimator for A/B Tests under Network Interference\\
   **Qianyi Chen**, Bo Li \\
   [[arXiv](https://arxiv.org/abs/2410.12740)]  [[code](https://github.com/Cqyiiii/Just-Ramp-up)] 
@@ -25,13 +25,13 @@ My research interests span causal inference, machine learning, and network scien
   
 
 - Practical Performative Policy Learning with Strategic Agents\\
-  **Qianyi Chen**, Ying Chen, Bo Li \\  
+  **Qianyi Chen**, Ying Chen, Bo Li\\
   [[arXiv](https://arxiv.org/abs/2412.01344)]  [[code](https://github.com/Cqyiiii/Practical-Performative-Policy-Learning-PPPL)] 
 
 
 
 ## Publication
-======
+<!-- ====== -->
 - Optimized Covariance Design for AB Test on Social Network under Interference \\
   **Qianyi Chen**, Bo Li, Lu Deng, Yong Wang\\
   The 37th Annual Conference on Neural Information Processing Systems (NeurIPS), 2023.\\
