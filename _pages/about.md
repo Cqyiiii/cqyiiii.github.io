@@ -32,6 +32,7 @@ My research interests span causal inference, machine learning, and network scien
 
 
 ## Publications
+=========
 - **Optimized Covariance Design for AB Test on Social Network under Interference** \\
   Qianyi Chen, Bo Li, Lu Deng, Yong Wang\\
   The 37th Annual Conference on Neural Information Processing Systems (NeurIPS), 2023.\\
