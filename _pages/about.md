@@ -17,7 +17,6 @@ My research interests span causal inference, machine learning, and network scien
 
 
 ## Preprints
-<!-- ====== -->
 - **Just Ramp-up: Unleash the Potential of Regression-based Estimator for A/B Tests under Network Interference**\\
   Qianyi Chen, Bo Li \\
   Submitted, 2024\\
@@ -33,13 +32,12 @@ My research interests span causal inference, machine learning, and network scien
 
 
 ## Publications
-<!-- ====== -->
 - **Optimized Covariance Design for AB Test on Social Network under Interference** \\
   Qianyi Chen, Bo Li, Lu Deng, Yong Wang\\
   The 37th Annual Conference on Neural Information Processing Systems (NeurIPS), 2023.\\
   [[paper](https://proceedings.neurips.cc/paper_files/paper/2023/file/760b5def8dcb1156aac454e9c0f5f406-Paper-Conference.pdf)]  [[code](https://github.com/Cqyiiii/Optimized_Covariance_Design-NIPS2023)]  [[poster](./files/OCD_poster_v2.pdf)]  [[slides](./files/OCD_slides.pdf)]
 
-
+<br><br>
 
 
 
@@ -59,7 +57,6 @@ Probability and Statistics at Tsinghua University (Fall 2022, 2023, 2024; TA; wi
   (Remote) Research Intern, Algorithm Developer\\
   Aug. 2022 - Jul. 2023
   
-
 - ByteDance, Data \\
   Intern, Machine Learning Algorithm Engineer\\
   Jul. 2021 – Nov. 2021
