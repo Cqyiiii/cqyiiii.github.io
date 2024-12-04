@@ -14,6 +14,7 @@ Hi, I’m Qianyi (pronounced like “Channing”). I am a third-year PhD student
 My research interests span causal inference and machine learning. I am particularly focused on: 
 - Experimental design and estimation techniques under network interference
 - Incentive-aware machine learning involving algorithms acting as treatments
+
 My goal is to develop effective, scalable, sample-efficient, and easy-to-implement statistical methodologies to address practical challenges.
 
 
