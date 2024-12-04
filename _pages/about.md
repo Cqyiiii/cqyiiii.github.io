@@ -28,7 +28,7 @@ My research interests span causal inference, machine learning, and network scien
 - **Practical Performative Policy Learning with Strategic Agents**\\
   Qianyi Chen, Ying Chen, Bo Li\\
   Submitted, 2024\\
-  [[arXiv](https://arxiv.org/abs/2412.01344)]  [[code](https://github.com/Cqyiiii/Practical-Performative-Policy-Learning-PPPL)] 
+  [[arXiv](https://arxiv.org/abs/2412.01344)]  [[code](https://github.com/Cqyiiii/Practical-Performative-Policy-Learning-PPPL)]\\
 
 
 
@@ -41,8 +41,8 @@ My research interests span causal inference, machine learning, and network scien
 
 
 
-  \\ 
-  \\
+
+
 ## Services
 
 ### Conference reviewer
