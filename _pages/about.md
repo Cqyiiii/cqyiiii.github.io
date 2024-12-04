@@ -8,7 +8,6 @@ redirect_from:
 ---
 
 
-
 Hi, I’m Qianyi (pronounced like “Channing”). I am a third-year PhD student in the Department of Management Science and Engineering at the School of Economics and Management, Tsinghua University. I'm fortunate to be advised by Prof. [Bo Li](https://www.sem.tsinghua.edu.cn/en/info/1219/6985.htm). Prior to my doctoral studies, I earned a Bachelor of Engineering degree from Tsinghua University, majoring in Industrial Engineering with a minor in Data Science and Engineering.
 
 
