@@ -16,21 +16,21 @@ I'm a third-year PhD student in the Department of Management Science and Enginee
 My research interests span causal inference, machine learning, and network science. I am particularly focused on experimental design and estimation for complex treatments, such as those involving interference or functional treatments. My goal is to develop scalable, effective, and easy-to-implement statistical methodologies to address practical challenges.
 
 
-Preprints
+## Preprints
 ======
 - Just Ramp-up: Unleash the Potential of Regression-based Estimator for A/B Tests under Network Interference\\
-  **Qianyi Chen**, Bo Li\\
+  **Qianyi Chen**, Bo Li \\
   [[arXiv](https://arxiv.org/abs/2410.12740)]  [[code](https://github.com/Cqyiiii/Just-Ramp-up)] 
 
   
 
 - Practical Performative Policy Learning with Strategic Agents\\
-  **Qianyi Chen**, Ying Chen, Bo Li\\  
+  **Qianyi Chen**, Ying Chen, Bo Li \\  
   [[arXiv](https://arxiv.org/abs/2412.01344)]  [[code](https://github.com/Cqyiiii/Practical-Performative-Policy-Learning-PPPL)] 
 
 
 
-Publication
+## Publication
 ======
 - Optimized Covariance Design for AB Test on Social Network under Interference \\
   **Qianyi Chen**, Bo Li, Lu Deng, Yong Wang\\
