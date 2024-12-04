@@ -50,3 +50,15 @@ NeurIPS 2024, AISTATS 2024, ICLR 2024
 
 ### Teaching 
 Probability and Statistics at Tsinghua University (Fall 2022, 2023, 2024; TA; with Prof. [Bo Li](https://www.sem.tsinghua.edu.cn/en/info/1219/6985.htm), Prof. [Xiaojie Mao](https://www.sem.tsinghua.edu.cn/en/info/1219/7070.htm))
+
+
+## Experience
+
+- Tencent, Wechat Group\\
+  Algorithm Developer (Remote Research Intern)\\
+  Aug. 2022 - Jul. 2023
+  
+
+- ByteDance, Data \\
+  Machine Learning Algorithm Engineer\\
+  Jul. 2021 – Nov. 2021
