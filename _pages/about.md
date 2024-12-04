@@ -12,7 +12,10 @@ redirect_from:
 Hi, I’m Qianyi (pronounced like “Channing”). I am a third-year PhD student in the Department of Management Science and Engineering at the School of Economics and Management, Tsinghua University. I'm fortunate to be advised by Prof. [Bo Li](https://www.sem.tsinghua.edu.cn/en/info/1219/6985.htm). Prior to my doctoral studies, I earned a Bachelor of Engineering degree from Tsinghua University, majoring in Industrial Engineering with a minor in Data Science and Engineering.
 
 
-My research interests span causal inference, machine learning, and network science. I am particularly focused on experimental design and estimation for complex treatments, such as those involving interference or functional treatments. My goal is to develop effective, scalable, sample-efficient, and easy-to-implement statistical methodologies to address practical challenges.
+My research interests span causal inference and machine learning. I am particularly focused on: 
+- Experimental design and estimation techniques under network interference
+- Incentive-aware machine learning involving algorithms acting as treatments
+My goal is to develop effective, scalable, sample-efficient, and easy-to-implement statistical methodologies to address practical challenges.
 
 
 
