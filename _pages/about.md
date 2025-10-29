@@ -8,7 +8,7 @@ redirect_from:
 ---
 
 
-Hi, I’m Qianyi (pronounced like “Channing”). I am a third-year PhD student in the Department of Management Science and Engineering at the School of Economics and Management, Tsinghua University. I'm fortunate to be advised by Prof. [Bo Li](https://www.sem.tsinghua.edu.cn/en/info/1219/6985.htm). Prior to my doctoral studies, I earned a Bachelor of Engineering degree from Tsinghua University, majoring in Industrial Engineering with a minor in Data Science and Engineering.
+Hi, I’m Qianyi (pronounced like “Channing”). I am a fourth-year PhD student in the Department of Management Science and Engineering at the School of Economics and Management, Tsinghua University. I'm fortunate to be advised by Prof. [Bo Li](https://www.sem.tsinghua.edu.cn/en/info/1219/6985.htm). Prior to my doctoral studies, I earned a Bachelor of Engineering degree from Tsinghua University, majoring in Industrial Engineering with a minor in Data Science and Engineering.
 
 
 My research interests span causal inference and machine learning, with a particular focus on addressing practical challenges involving complex treatments. Specifically, I am interested in:
@@ -22,15 +22,15 @@ My goal is to develop effective, scalable, sample-efficient, and easy-to-impleme
 ## Preprints
 - **Just Ramp-up: Unleash the Potential of Regression-based Estimator for A/B Tests under Network Interference**\\
   Qianyi Chen, Bo Li \\
-  Submitted, 2024\\
-  [[arXiv](https://arxiv.org/abs/2410.12740)]  [[code](https://github.com/Cqyiiii/Just-Ramp-up)] 
+  Under Review, 2025\\
+  [[arXiv](https://arxiv.org/abs/2410.12740)]  [[code](https://github.com/Cqyiiii/Just-Ramp-up)]  [[slides](./files/ramp-up.pdf)] 
 
   
 
 - **Practical Performative Policy Learning with Strategic Agents**\\
   Qianyi Chen, Ying Chen, Bo Li\\
-  Submitted, 2024\\
-  [[arXiv](https://arxiv.org/abs/2412.01344)]  [[code](https://github.com/Cqyiiii/Practical-Performative-Policy-Learning-PPPL)]
+  Under Review, 2025\\
+  [[arXiv](https://arxiv.org/abs/2412.01344)]  [[code](https://github.com/Cqyiiii/Practical-Performative-Policy-Learning-PPPL)][[slides](./files/pppl.pdf)]
 
 
 <br>
