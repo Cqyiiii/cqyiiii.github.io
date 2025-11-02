@@ -55,7 +55,7 @@ My goal is to develop effective, scalable, sample-efficient, and easy-to-impleme
 ## Services
 
 ### Conference reviewer
-NeurIPS 2024, AISTATS 2024, ICLR 2024
+NeurIPS(2024-2025), ICLR(2025-2026), ICML(2025), AISTATS(2024)
 
 
 ### Teaching 
