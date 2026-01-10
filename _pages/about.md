@@ -20,6 +20,14 @@ My goal is to develop effective, scalable, sample-efficient, and easy-to-impleme
 
 
 ## Preprints
+- Colorful Pinball: Density-Weighted Quantile Regression for Conditional Guarantee of Conformal Prediction\\
+  
+  Qianyi Chen, Bo Li\\
+  
+  2025
+  
+  [[arXiv](https://arxiv.org/abs/2512.24139)] [[code](https://github.com/Cqyiiii/Colorful-Pinball-Conformal-Prediction-CPCP)] 
+  
 - **Just Ramp-up: Unleash the Potential of Regression-based Estimator for A/B Tests under Network Interference**\\
   Qianyi Chen, Bo Li \\
   Under Review, 2025\\
@@ -59,7 +67,7 @@ NeurIPS(2024-2025), ICLR(2025-2026), ICML(2025), AISTATS(2024)
 
 
 ### Teaching 
-Probability and Statistics at Tsinghua University (Fall 2022, 2023, 2024; TA; with Prof. [Bo Li](https://www.sem.tsinghua.edu.cn/en/info/1219/6985.htm), Prof. [Xiaojie Mao](https://www.sem.tsinghua.edu.cn/en/info/1219/7070.htm))
+Probability and Statistics at Tsinghua University (Fall 2022, 2023, 2024, 2025; TA; with Prof. [Bo Li](https://www.sem.tsinghua.edu.cn/en/info/1219/6985.htm), Prof. [Xiaojie Mao](https://www.sem.tsinghua.edu.cn/en/info/1219/7070.htm))
 
 <br>
 
