@@ -51,6 +51,14 @@ My goal is to develop effective, scalable, sample-efficient, and easy-to-impleme
 <br>
 
 
+- **Journey to the Centre of Cluster: Harnessing Interior Nodes for A/B Testing under Network Interference** \\
+  Qianyi Chen, Anpeng Wu, Bo Li, Lu Deng, Yong Wang\\
+  The Fourteenth International Conference on Learning Representations (ICLR), 2026.\\
+  [[paper](https://openreview.net/pdf?id=QZvqSNIUq6)] 
+
+<br>
+
+
 
 
 
@@ -61,11 +69,11 @@ My goal is to develop effective, scalable, sample-efficient, and easy-to-impleme
 ## Services
 
 ### Conference reviewer
-NeurIPS(2024-2025), ICLR(2025-2026), ICML(2025), AISTATS(2024)
+NeurIPS(2024-2025), ICLR(2025-2026), ICML(2025-2026), AISTATS(2024)
 
 
 ### Teaching 
-Probability and Statistics at Tsinghua University (Fall 2022, 2023, 2024, 2025; TA; with Prof. [Bo Li](https://www.sem.tsinghua.edu.cn/en/info/1219/6985.htm), Prof. [Xiaojie Mao](https://www.sem.tsinghua.edu.cn/en/info/1219/7070.htm))
+Probability and Statistics at Tsinghua University (Fall 2022-2025; TA; with Prof. [Bo Li](https://www.sem.tsinghua.edu.cn/en/info/1219/6985.htm), Prof. [Xiaojie Mao](https://www.sem.tsinghua.edu.cn/en/info/1219/7070.htm))
 
 <br>
 
