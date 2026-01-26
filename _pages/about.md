@@ -40,13 +40,13 @@ My goal is to develop effective, scalable, sample-efficient, and easy-to-impleme
 
 
 ## Publications
-
+<!-- 
 - **Journey to the Centre of Cluster: Harnessing Interior Nodes for A/B Testing under Network Interference** \\
   Qianyi Chen, Anpeng Wu, Bo Li, Lu Deng, Yong Wang\\
   The 14th International Conference on Learning Representations (ICLR), 2026.\\
   [[paper](https://openreview.net/pdf?id=QZvqSNIUq6)] 
 
-<br>
+<br> -->
 
 - **Optimized Covariance Design for AB Test on Social Network under Interference** \\
   Qianyi Chen, Bo Li, Lu Deng, Yong Wang\\
