@@ -17,9 +17,9 @@ My goal is to develop effective, scalable, sample-efficient, and easy-to-impleme
 
 
 ## Preprints
-- Colorful Pinball: Density-Weighted Quantile Regression for Conditional Guarantee of Conformal Prediction\\
+- **Colorful Pinball: Density-Weighted Quantile Regression for Conditional Guarantee of Conformal Prediction**\\
   Qianyi Chen, Bo Li\\
-  2025\\
+  2026\\
   [[arXiv](https://arxiv.org/abs/2512.24139)] [[code](https://github.com/Cqyiiii/Colorful-Pinball-Conformal-Prediction-CPCP)] 
   
   
