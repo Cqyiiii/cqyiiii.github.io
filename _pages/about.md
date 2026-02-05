@@ -44,7 +44,7 @@ My goal is to develop effective, scalable, sample-efficient, and easy-to-impleme
 - **Journey to the Centre of Cluster: Harnessing Interior Nodes for A/B Testing under Network Interference** \\
   Qianyi Chen, Anpeng Wu, Bo Li, Lu Deng, Yong Wang\\
   The 14th International Conference on Learning Representations (ICLR), 2026.\\
-  [[paper](https://arxiv.org/abs/2602.04457)]  [[code](https://github.com/Cqyiiii/AMII-Harnessing-Interior-Nodes-for-Network-Experiments)]
+  [[paper](https://arxiv.org/pdf/2602.04457)]  [[code](https://github.com/Cqyiiii/AMII-Harnessing-Interior-Nodes-for-Network-Experiments)]
 
 <br> 
 
@@ -54,8 +54,6 @@ My goal is to develop effective, scalable, sample-efficient, and easy-to-impleme
   [[paper](https://proceedings.neurips.cc/paper_files/paper/2023/file/760b5def8dcb1156aac454e9c0f5f406-Paper-Conference.pdf)]  [[code](https://github.com/Cqyiiii/Optimized_Covariance_Design-NIPS2023)]  [[poster](./files/OCD_poster_v2.pdf)]  [[slides](./files/OCD_slides.pdf)]
 
 <br>
-
-
 
 
 
