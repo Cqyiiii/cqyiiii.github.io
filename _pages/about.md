@@ -17,11 +17,7 @@ My goal is to develop effective, scalable, sample-efficient, and easy-to-impleme
 
 
 ## Preprints
-- **Colorful Pinball: Density-Weighted Quantile Regression for Conditional Guarantee of Conformal Prediction**\\
-  Qianyi Chen, Bo Li\\
-  2026\\
-  [[arXiv](https://arxiv.org/abs/2512.24139)] [[code](https://github.com/Cqyiiii/Colorful-Pinball-Conformal-Prediction-CPCP)] 
-  
+
   
 - **Just Ramp-up: Unleash the Potential of Regression-based Estimator for A/B Tests under Network Interference**\\
   Qianyi Chen, Bo Li \\
@@ -40,6 +36,12 @@ My goal is to develop effective, scalable, sample-efficient, and easy-to-impleme
 
 
 ## Publications
+
+- **Colorful Pinball: Density-Weighted Quantile Regression for Conditional Guarantee of Conformal Prediction**\\
+  Qianyi Chen, Bo Li\\
+  The 43rd International Conference on Machine Learning (ICML), 2026.\\
+  [[arXiv](https://arxiv.org/abs/2512.24139)] [[code](https://github.com/Cqyiiii/Colorful-Pinball-Conformal-Prediction-CPCP)] 
+  
 
 - **Journey to the Centre of Cluster: Harnessing Interior Nodes for A/B Testing under Network Interference** \\
   Qianyi Chen, Anpeng Wu, Bo Li, Lu Deng, Yong Wang\\
