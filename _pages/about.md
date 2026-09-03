@@ -104,6 +104,21 @@ redirect_from:
       <article class="publication-item">
         <div class="publication-item__meta">
           <span class="venue venue--preprint">Preprint</span>
+          <span class="year">2026</span>
+        </div>
+        <div class="publication-item__body">
+          <h3>COSTA: Covariance-Optimized Design and Causal Inference under Network-Temporal Interference</h3>
+          <p class="authors"><strong>Qianyi Chen</strong>, Bo Li, Yongli Qin, Jinyong Ma</p>
+          <p class="publication-item__venue">Preprint</p>
+          <div class="paper-links">
+            <a href="https://arxiv.org/pdf/2609.02032">Paper</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="publication-item">
+        <div class="publication-item__meta">
+          <span class="venue venue--preprint">Preprint</span>
           <span class="year">2025</span>
         </div>
         <div class="publication-item__body">

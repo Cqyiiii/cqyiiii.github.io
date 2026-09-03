@@ -63,6 +63,13 @@ redirect_from:
       </div>
     </div>
     <div class="cv-entry">
+      <div class="cv-entry__meta">Preprint · 2026</div>
+      <div>
+        <h3>COSTA: Covariance-Optimized Design and Causal Inference under Network-Temporal Interference</h3>
+        <p><strong>Qianyi Chen</strong>, Bo Li, Yongli Qin, Jinyong Ma</p>
+      </div>
+    </div>
+    <div class="cv-entry">
       <div class="cv-entry__meta">Preprint · 2025</div>
       <div>
         <h3>Just Ramp-up: Unleash the Potential of Regression-based Estimator for A/B Tests under Network Interference</h3>
