@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ site.title }} — Research &amp; ideas</title>
+    <meta name="description" content="{{ site.description | escape }}">
+    <meta name="theme-color" content="#faf9f6">
+    <link rel="canonical" href="{{ '/' | absolute_url }}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ site.title | escape }}">
+    <meta property="og:description" content="{{ site.description | escape }}">
+    <meta property="og:url" content="{{ '/' | absolute_url }}">
+    <meta property="og:image" content="{{ '/images/og.png' | absolute_url }}">
+    <link rel="icon" href="{{ '/images/favicon.ico' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url }}">
+    <script src="{{ '/assets/js/home.js' | relative_url }}" defer></script>
+  </head>
+  <body class="home-redesign">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="home-masthead">
+      <nav class="home-nav" aria-label="Main navigation">
+        <a class="home-brand" href="{{ '/' | relative_url }}" aria-label="Qianyi Chen home"><span class="home-monogram" aria-hidden="true">qc<span>.</span></span><span class="home-brand__name">Qianyi Chen</span></a>
+        <div class="home-nav__links">
+          <a href="#research">Research</a>
+          <a href="#publications">Publications</a>
+          <a href="#service">Experience</a>
+          <a class="home-nav__cv" href="{{ '/cv/' | relative_url }}">CV <span aria-hidden="true">↗</span></a>
+        </div>
+      </nav>
+    </header>
+    <main id="main" class="home-main" tabindex="-1">
+      {{ content }}
+    </main>
+    <footer class="home-footer">
+      <div class="home-footer__inner"><span>© {{ site.time | date: '%Y' }} Qianyi Chen</span><span class="home-footer__note">Causal questions. Thoughtful methods.</span><div class="home-footer__links"><a href="#contact">Contact</a><a href="#main">Back to top <span aria-hidden="true">↑</span></a></div></div>
+    </footer>
+  </body>
+</html>
