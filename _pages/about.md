@@ -36,8 +36,8 @@ redirect_from:
     </div>
 
     <figure class="profile-hero__portrait">
-      <div class="portrait-frame"><img src="/profile2.jpg" alt="Qianyi Chen at NeurIPS in New Orleans, 2023" width="2316" height="3088" fetchpriority="high"></div>
-      <figcaption><span>Qianyi Chen</span><span>New Orleans · 2023</span></figcaption>
+      <div class="portrait-frame"><img src="/images/neurips-2023-poster.jpg" alt="Qianyi Chen presenting his research poster at NeurIPS 2023 in New Orleans" width="6016" height="3384" fetchpriority="high"></div>
+      <figcaption>New Orleans · December 2023</figcaption>
     </figure>
   </section>
 
@@ -189,19 +189,38 @@ redirect_from:
     <div class="service-grid">
       <article>
         <h3>Reviewing</h3>
-        <p>NeurIPS (2024–2025), ICLR (2025–2026), ICML (2025–2026), and AISTATS (2024).</p>
+        <p>Reviewer for ICML (2025, 2026; Gold Reviewer in 2026), NeurIPS (2024–2026), ICLR (2025–2026), and AISTATS (2024).</p>
       </article>
       <article>
         <h3>Teaching</h3>
-        <p>Teaching Assistant for Probability and Statistics at Tsinghua University, Fall 2022–2025, working with Prof. <a href="https://www.sem.tsinghua.edu.cn/en/info/1219/6985.htm">Bo Li</a> and Prof. <a href="https://www.sem.tsinghua.edu.cn/en/info/1219/7070.htm">Xiaojie Mao</a>.</p>
+        <p>Teaching Assistant for Probability and Statistics at Tsinghua University, 2022–2026, working with Prof. <a href="https://www.sem.tsinghua.edu.cn/en/info/1219/6985.htm">Bo Li</a> and Prof. <a href="https://www.sem.tsinghua.edu.cn/en/info/1219/7070.htm">Xiaojie Mao</a>.</p>
       </article>
       <article>
         <h3>Industry research</h3>
-        <p>Research intern and algorithm developer at Tencent WeChat (2022–2023).<br>Machine Learning algorithm engineer intern at ByteDance (2021).</p>
+        <div class="experience-list">
+          <div class="experience-entry">
+            <div class="experience-entry__heading"><h4>Ant Group</h4><p class="experience-dates"><time datetime="2026-06">Jun 2026</time> – <time datetime="2026-09">Sep 2026</time></p></div>
+            <p class="experience-role">Post-training Algorithm Engineer Intern · Ant Star</p>
+            <p>Agentic post-training for data agents.</p>
+          </div>
+          <div class="experience-entry">
+            <div class="experience-entry__heading"><h4>Tencent WeChat</h4><p class="experience-dates"><time datetime="2022-08">Aug 2022</time> – <time datetime="2023-08">Aug 2023</time></p></div>
+            <p class="experience-role">Research Intern</p>
+            <p>Causal inference under network interference.</p>
+          </div>
+          <div class="experience-entry">
+            <div class="experience-entry__heading"><h4>ByteDance</h4><p class="experience-dates"><time datetime="2021-07">Jul 2021</time> – <time datetime="2021-12">Dec 2021</time></p></div>
+            <p class="experience-role">Machine Learning Algorithm Engineer Intern</p>
+            <p>Computer vision and multimodal learning, including CLIP.</p>
+          </div>
+        </div>
       </article>
       <article>
         <h3>Education</h3>
-        <p>B.Eng. in Industrial Engineering with a minor in Data Science and Engineering, Tsinghua University.</p>
+        <div>
+          <p class="education-entry">Ph.D. Candidate in Management Science and Engineering, Tsinghua University.<br><span class="education-dates">Aug 2022 – Jun 2027 (expected)</span></p>
+          <p class="education-entry">B.Eng. in Industrial Engineering, with a minor in Data Science and Technology, Tsinghua University.<br><span class="education-dates">Graduated Jun 2022</span></p>
+        </div>
       </article>
     </div>
   </section>
