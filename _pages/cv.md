@@ -49,6 +49,14 @@ redirect_from:
   <section class="cv-section">
     <h2>Publications &amp; Preprints</h2>
     <div class="cv-entry">
+      <div class="cv-entry__meta">NeurIPS 2026 · Published</div>
+      <div>
+        <h3>Just Ramp-Up: Debiasing Regression-based Estimator for A/B Tests under Network Interference</h3>
+        <p><strong>Qianyi Chen</strong>, Bo Li</p>
+        <p>The 40th Annual Conference on Neural Information Processing Systems</p>
+      </div>
+    </div>
+    <div class="cv-entry">
       <div class="cv-entry__meta">ICML 2026</div>
       <div>
         <h3>Colorful Pinball: Density-Weighted Quantile Regression for Conditional Guarantee of Conformal Prediction</h3>
@@ -67,13 +75,6 @@ redirect_from:
       <div>
         <h3>COSTA: Covariance-Optimized Design and Causal Inference under Network-Temporal Interference</h3>
         <p><strong>Qianyi Chen</strong>, Bo Li, Yongli Qin, Jinyong Ma</p>
-      </div>
-    </div>
-    <div class="cv-entry">
-      <div class="cv-entry__meta">Preprint · 2025</div>
-      <div>
-        <h3>Just Ramp-up: Unleash the Potential of Regression-based Estimator for A/B Tests under Network Interference</h3>
-        <p><strong>Qianyi Chen</strong>, Bo Li</p>
       </div>
     </div>
     <div class="cv-entry">

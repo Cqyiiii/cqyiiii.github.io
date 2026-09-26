@@ -70,13 +70,30 @@ redirect_from:
       </div>
       <div class="publication-filters" role="group" aria-label="Filter publications" hidden>
         <button type="button" data-filter="all" aria-pressed="true">All <span>6</span></button>
-        <button type="button" data-filter="conference" aria-pressed="false">Conference <span>3</span></button>
-        <button type="button" data-filter="preprint" aria-pressed="false">Preprint <span>3</span></button>
+        <button type="button" data-filter="conference" aria-pressed="false">Conference <span>4</span></button>
+        <button type="button" data-filter="preprint" aria-pressed="false">Preprint <span>2</span></button>
       </div>
     </div>
     <p class="sr-only" id="publication-status" role="status" aria-live="polite"></p>
 
     <div class="publication-list">
+      <article class="publication-item">
+        <div class="publication-item__meta">
+          <span class="venue">NeurIPS</span>
+          <span class="year">2026</span>
+        </div>
+        <div class="publication-item__body">
+          <h3>Just Ramp-Up: Debiasing Regression-based Estimator for A/B Tests under Network Interference</h3>
+          <p class="authors"><strong>Qianyi Chen</strong>, Bo Li</p>
+          <p class="publication-item__venue">The 40th Annual Conference on Neural Information Processing Systems (NeurIPS 2026) · Published</p>
+          <div class="paper-links">
+            <a href="https://arxiv.org/abs/2410.12740">arXiv</a>
+            <a href="https://github.com/Cqyiiii/Just-Ramp-up">Code</a>
+            <a href="/files/ramp-up.pdf">Slides</a>
+          </div>
+        </div>
+      </article>
+
       <article class="publication-item">
         <div class="publication-item__meta">
           <span class="venue">ICML</span>
@@ -121,23 +138,6 @@ redirect_from:
           <p class="publication-item__venue">Preprint</p>
           <div class="paper-links">
             <a href="https://arxiv.org/pdf/2609.02032">Paper</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="publication-item">
-        <div class="publication-item__meta">
-          <span class="venue venue--preprint">Preprint</span>
-          <span class="year">2025</span>
-        </div>
-        <div class="publication-item__body">
-          <h3>Just Ramp-up: Unleash the Potential of Regression-based Estimator for A/B Tests under Network Interference</h3>
-          <p class="authors"><strong>Qianyi Chen</strong>, Bo Li</p>
-          <p class="publication-item__venue">Under review</p>
-          <div class="paper-links">
-            <a href="https://arxiv.org/abs/2410.12740">arXiv</a>
-            <a href="https://github.com/Cqyiiii/Just-Ramp-up">Code</a>
-            <a href="/files/ramp-up.pdf">Slides</a>
           </div>
         </div>
       </article>
