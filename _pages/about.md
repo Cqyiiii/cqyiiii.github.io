@@ -106,6 +106,7 @@ redirect_from:
           <div class="paper-links">
             <a href="https://arxiv.org/abs/2512.24139">arXiv</a>
             <a href="https://github.com/Cqyiiii/Colorful-Pinball-Conformal-Prediction-CPCP">Code</a>
+            <a href="/files/cpcp_icml_poster_v2.pdf">Poster</a>
           </div>
         </div>
       </article>
