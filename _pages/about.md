@@ -85,7 +85,7 @@ redirect_from:
         <div class="publication-item__body">
           <h3>Just Ramp-Up: Debiasing Regression-based Estimator for A/B Tests under Network Interference</h3>
           <p class="authors"><strong>Qianyi Chen</strong>, Bo Li</p>
-          <p class="publication-item__venue">The 40th Annual Conference on Neural Information Processing Systems (NeurIPS 2026) · Published</p>
+          <p class="publication-item__venue">The 40th Annual Conference on Neural Information Processing Systems (NeurIPS 2026)</p>
           <div class="paper-links">
             <a href="https://arxiv.org/abs/2410.12740">arXiv</a>
             <a href="https://github.com/Cqyiiii/Just-Ramp-up">Code</a>

@@ -50,7 +50,7 @@ redirect_from:
   <section class="cv-section">
     <h2>Publications &amp; Preprints</h2>
     <div class="cv-entry">
-      <div class="cv-entry__meta">NeurIPS 2026 · Published</div>
+      <div class="cv-entry__meta">NeurIPS 2026</div>
       <div>
         <h3>Just Ramp-Up: Debiasing Regression-based Estimator for A/B Tests under Network Interference</h3>
         <p><strong>Qianyi Chen</strong>, Bo Li</p>
