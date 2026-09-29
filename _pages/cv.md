@@ -73,6 +73,14 @@ redirect_from:
     <div class="cv-entry">
       <div class="cv-entry__meta">Preprint · 2026</div>
       <div>
+        <h3>How Synthetic Labels Improve Conformal Prediction: A Perspective on Conditional Coverage</h3>
+        <p><strong>Qianyi Chen</strong>, Bo Li</p>
+        <p>Under review</p>
+      </div>
+    </div>
+    <div class="cv-entry">
+      <div class="cv-entry__meta">Preprint · 2026</div>
+      <div>
         <h3>COSTA: Covariance-Optimized Design and Causal Inference under Network-Temporal Interference</h3>
         <p><strong>Qianyi Chen</strong>, Bo Li, Yongli Qin, Jinyong Ma</p>
       </div>

@@ -69,9 +69,9 @@ redirect_from:
         <h2 id="publications-heading">Publications &amp; Preprints</h2>
       </div>
       <div class="publication-filters" role="group" aria-label="Filter publications" hidden>
-        <button type="button" data-filter="all" aria-pressed="true">All <span>6</span></button>
+        <button type="button" data-filter="all" aria-pressed="true">All <span>7</span></button>
         <button type="button" data-filter="conference" aria-pressed="false">Conference <span>4</span></button>
-        <button type="button" data-filter="preprint" aria-pressed="false">Preprint <span>2</span></button>
+        <button type="button" data-filter="preprint" aria-pressed="false">Preprint <span>3</span></button>
       </div>
     </div>
     <p class="sr-only" id="publication-status" role="status" aria-live="polite"></p>
@@ -123,6 +123,22 @@ redirect_from:
             <a href="https://arxiv.org/pdf/2602.04457">Paper</a>
             <a href="https://github.com/Cqyiiii/AMII-Harnessing-Interior-Nodes-for-Network-Experiments">Code</a>
             <a href="/files/amii-iclr-poster.pdf">Poster</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="publication-item">
+        <div class="publication-item__meta">
+          <span class="venue venue--preprint">Preprint</span>
+          <span class="year">2026</span>
+        </div>
+        <div class="publication-item__body">
+          <h3>How Synthetic Labels Improve Conformal Prediction: A Perspective on Conditional Coverage</h3>
+          <p class="authors"><strong>Qianyi Chen</strong>, Bo Li</p>
+          <p class="publication-item__venue">Under review</p>
+          <div class="paper-links">
+            <a href="https://arxiv.org/pdf/2609.33482v1">Paper</a>
+            <a href="https://github.com/Cqyiiii/synthetic-label-conformal">Code</a>
           </div>
         </div>
       </article>
