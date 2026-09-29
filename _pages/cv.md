@@ -14,6 +14,7 @@ redirect_from:
       <p>Ph.D. Candidate · Management Science and Engineering<br>School of Economics and Management · Tsinghua University</p>
     </div>
     <div class="cv-header__contact">
+      <a href="/files/CV_CQY_2026_v2.pdf" download>Download CV (PDF)</a>
       <span>cqy22 [at] mails [dot] tsinghua [dot] edu [dot] cn</span>
       <a href="https://github.com/Cqyiiii">github.com/Cqyiiii</a>
       <span>Beijing, China</span>
