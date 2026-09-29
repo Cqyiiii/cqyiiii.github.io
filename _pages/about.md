@@ -167,7 +167,7 @@ redirect_from:
         <div class="publication-item__body">
           <h3>Practical Performative Policy Learning with Strategic Agents</h3>
           <p class="authors"><strong>Qianyi Chen</strong>, Ying Chen, Bo Li</p>
-          <p class="publication-item__venue">Under review</p>
+          <p class="publication-item__venue">Under review · <em>Presented at INFORMS MSOM 2025, London</em></p>
           <div class="paper-links">
             <a href="https://arxiv.org/abs/2412.01344">arXiv</a>
             <a href="https://github.com/Cqyiiii/Practical-Performative-Policy-Learning-PPPL">Code</a>
