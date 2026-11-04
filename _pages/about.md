@@ -16,6 +16,8 @@ redirect_from:
       <p class="profile-hero__pronunciation"><span lang="zh-Hans">陈谦益</span><span class="pronunciation-divider" aria-hidden="true"></span>Qianyi /tʃjɛn ˈiː/</p>
       <p class="profile-hero__lede">I develop reliable and practical statistical methods for decision-making in complex systems.</p>
       <p class="profile-hero__bio">I am a final-year Ph.D. student in Management Science and Engineering at the <a href="https://www.sem.tsinghua.edu.cn/en/">School of Economics and Management, Tsinghua University</a>, advised by Prof. <a href="https://www.sem.tsinghua.edu.cn/en/info/1219/6985.htm">Bo Li</a>. My research sits at the intersection of causal inference, machine learning, and uncertainty quantification.</p>
+      <p class="profile-hero__bio"><strong>I am currently on the job market</strong>, seeking research scientist or research engineer positions focused on LLM evaluation, post-training, and classical machine learning research.</p>
+      <p class="profile-hero__bio">I’ll be attending NeurIPS 2026 in Sydney—feel free to reach out if you’ll be there!</p>
 
       <div class="profile-actions" aria-label="Profile links">
         <a class="profile-action profile-action--primary" href="#publications">Explore my work <span aria-hidden="true">↘</span></a>
