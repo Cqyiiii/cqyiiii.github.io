@@ -14,5 +14,8 @@ main:
   - title: "Service"
     url: /#service
 
+  - title: "Miscellanea"
+    url: /#miscellanea
+
   - title: "CV"
     url: /files/CV_CQY_2026_v2.pdf

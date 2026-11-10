@@ -104,7 +104,7 @@ redirect_from:
         <div class="publication-item__body">
           <h3>Colorful Pinball: Density-Weighted Quantile Regression for Conditional Guarantee of Conformal Prediction</h3>
           <p class="authors"><strong>Qianyi Chen</strong>, Bo Li</p>
-          <p class="publication-item__venue">The 43rd International Conference on Machine Learning</p>
+          <p class="publication-item__venue">The 43rd International Conference on Machine Learning (ICML 2026)</p>
           <div class="paper-links">
             <a href="https://arxiv.org/abs/2512.24139">arXiv</a>
             <a href="https://github.com/Cqyiiii/Colorful-Pinball-Conformal-Prediction-CPCP">Code</a>
@@ -121,7 +121,7 @@ redirect_from:
         <div class="publication-item__body">
           <h3>Journey to the Centre of Cluster: Harnessing Interior Nodes for A/B Testing under Network Interference</h3>
           <p class="authors"><strong>Qianyi Chen</strong>, Anpeng Wu, Bo Li, Lu Deng, Yong Wang</p>
-          <p class="publication-item__venue">The 14th International Conference on Learning Representations</p>
+          <p class="publication-item__venue">The 14th International Conference on Learning Representations (ICLR 2026)</p>
           <div class="paper-links">
             <a href="https://arxiv.org/pdf/2602.04457">Paper</a>
             <a href="https://github.com/Cqyiiii/AMII-Harnessing-Interior-Nodes-for-Network-Experiments">Code</a>
@@ -186,7 +186,7 @@ redirect_from:
         <div class="publication-item__body">
           <h3>Optimized Covariance Design for A/B Test on Social Network under Interference</h3>
           <p class="authors"><strong>Qianyi Chen</strong>, Bo Li, Lu Deng, Yong Wang</p>
-          <p class="publication-item__venue">The 37th Conference on Neural Information Processing Systems</p>
+          <p class="publication-item__venue">The 37th Conference on Neural Information Processing Systems (NeurIPS 2023)</p>
           <div class="paper-links">
             <a href="https://proceedings.neurips.cc/paper_files/paper/2023/file/760b5def8dcb1156aac454e9c0f5f406-Paper-Conference.pdf">Paper</a>
             <a href="https://github.com/Cqyiiii/Optimized_Covariance_Design-NIPS2023">Code</a>
@@ -208,7 +208,7 @@ redirect_from:
     <div class="service-grid">
       <article>
         <h3>Reviewing</h3>
-        <p>Reviewer for ICML (2025, 2026; Gold Reviewer in 2026), NeurIPS (2024–2026), ICLR (2025–2026), and AISTATS (2024).</p>
+        <p>Reviewer for ICML (2025–2026, Gold Reviewer in 2026), NeurIPS (2024–2026), ICLR (2025–2027), and AISTATS (2024).</p>
       </article>
       <article>
         <h3>Teaching</h3>
@@ -237,15 +237,31 @@ redirect_from:
       <article>
         <h3>Education</h3>
         <div>
-          <p class="education-entry">Ph.D. Candidate in Management Science and Engineering, Tsinghua University.<br><span class="education-dates">Aug 2022 – Jun 2027 (expected)</span></p>
-          <p class="education-entry">B.Eng. in Industrial Engineering, with a minor in Data Science and Technology, Tsinghua University.<br><span class="education-dates">Graduated Jun 2022</span></p>
+          <p class="education-entry">Ph.D. Candidate in Management Science and Engineering<br>Tsinghua University.<br><span class="education-dates">Aug 2022 – Jun 2027 (expected)</span></p>
+          <p class="education-entry">B.Eng. in Industrial Engineering, with a minor in Data Science and Technology<br>Tsinghua University.<br><span class="education-dates">Graduated Jun 2022</span></p>
         </div>
       </article>
     </div>
   </section>
 
+  <section class="academic-section miscellanea-section" id="miscellanea" aria-labelledby="miscellanea-heading">
+    <header class="section-heading" id="slides">
+      <p class="section-kicker"><span>04</span></p>
+      <h2 id="miscellanea-heading">Miscellanea</h2>
+    </header>
+    <article class="slide-entry">
+      <img src="/images/network-interference-slides.png" alt="" width="800" height="450" loading="lazy">
+      <div>
+        <h3>Causal Inference Under Network Interference</h3>
+        <time class="year" datetime="2026-11-10">Nov. 10, 2026</time>
+        <p>These slides summarize our four papers on the effect of a full rollout when one user’s treatment can affect others. OCD and COSTA study how to design the experiment. AMII and Just Ramp-Up study how to estimate the rollout effect.</p>
+        <div class="paper-links"><a href="/files/causal-inference-under-network-interference.pdf">View slides (PDF)</a></div>
+      </div>
+    </article>
+  </section>
+
   <section class="contact-band" id="contact" aria-labelledby="contact-heading">
-    <div class="contact-band__intro"><p class="section-kicker"><span>04</span> Get in touch</p>
+    <div class="contact-band__intro"><p class="section-kicker"><span>05</span> Get in touch</p>
     <h2 id="contact-heading">Let’s talk <em>research.</em></h2>
     <p>Interested in research conversations.</p></div>
     <div class="contact-band__details"><p class="contact-email">cqy22 <span>[at]</span> mails <span>[dot]</span> tsinghua <span>[dot]</span> edu <span>[dot]</span> cn</p>
