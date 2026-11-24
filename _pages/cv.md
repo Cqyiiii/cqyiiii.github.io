@@ -123,7 +123,7 @@ redirect_from:
           <div class="cv-entry__meta">Working paper · 2026</div>
           <div>
             <h4><a href="https://github.com/Cqyiiii/tail-crc/blob/main/Tail-CRC.pdf">Decoupling Solving from Abstention: Single-Rollout Conformal Risk Control for Hard-Budget LLM Reasoning</a></h4>
-            <p><strong>Qianyi Chen</strong>, Ying Chen, Bo Li</p>
+            <p><strong>Qianyi Chen</strong>, Bo Li</p>
           </div>
         </div>
       </section>
