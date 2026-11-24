@@ -685,7 +685,34 @@ button:focus-visible {
   text-transform: uppercase;
 }
 
-.cv-entry h3 {
+.cv-publication-group + .cv-publication-group {
+  margin-top: 32px;
+}
+
+.cv-publication-group > h3,
+.cv-publication-group__subgroup > h4 {
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  font-weight: 500;
+}
+
+.cv-publication-group > h3 {
+  margin: 0 0 18px;
+  color: var(--blue);
+  font-size: 1.15rem;
+  line-height: 1.25;
+  letter-spacing: -.02em;
+}
+
+.cv-publication-group__subgroup > h4 {
+  margin: 0 0 14px;
+  font-size: 0.95rem;
+}
+
+.cv-publication-group__subgroup + .cv-publication-group__subgroup {
+  margin-top: 24px;
+}
+
+.cv-entry :is(h3, h4, h5) {
   margin: 0 0 5px;
   font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
   font-size: 1.04rem;

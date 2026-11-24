@@ -68,133 +68,158 @@ redirect_from:
     <div class="section-heading">
       <div>
         <p class="section-kicker"><span>02</span> Selected work</p>
-        <h2 id="publications-heading">Publications &amp; Preprints</h2>
+        <h2 id="publications-heading">Publications &amp; Working Papers</h2>
       </div>
       <div class="publication-filters" role="group" aria-label="Filter publications" hidden>
-        <button type="button" data-filter="all" aria-pressed="true">All <span>7</span></button>
-        <button type="button" data-filter="conference" aria-pressed="false">Conference <span>4</span></button>
-        <button type="button" data-filter="preprint" aria-pressed="false">Preprint <span>3</span></button>
+        <button type="button" data-filter="all" aria-pressed="true">All <span></span></button>
+        <button type="button" data-filter="conference" aria-pressed="false">Conference <span></span></button>
+        <button type="button" data-filter="working" aria-pressed="false">Working papers <span></span></button>
       </div>
     </div>
     <p class="sr-only" id="publication-status" role="status" aria-live="polite"></p>
 
     <div class="publication-list">
-      <article class="publication-item">
-        <div class="publication-item__meta">
-          <span class="venue">NeurIPS</span>
-          <span class="year">2026</span>
-        </div>
-        <div class="publication-item__body">
-          <h3>Just Ramp-Up: Debiasing Regression-Based Causal Estimation under Network Interference</h3>
-          <p class="authors"><strong>Qianyi Chen</strong>, Bo Li</p>
-          <p class="publication-item__venue">The 40th Annual Conference on Neural Information Processing Systems (NeurIPS 2026)</p>
-          <div class="paper-links">
-            <a href="https://arxiv.org/abs/2410.12740">arXiv</a>
-            <a href="https://github.com/Cqyiiii/Just-Ramp-up">Code</a>
-            <a href="/files/ramp-up.pdf">Slides</a>
-          </div>
-        </div>
-      </article>
+      <section class="publication-group">
+        <h3>Causal Inference under Interference</h3>
+        <section class="publication-group__subgroup">
+          <h4>Experimental Design</h4>
+          <article class="publication-item" data-type="conference">
+            <div class="publication-item__meta">
+              <span class="venue">NeurIPS</span>
+              <span class="year">2023</span>
+            </div>
+            <div class="publication-item__body">
+              <h5>Optimized Covariance Design for A/B Test on Social Network under Interference</h5>
+              <p class="authors"><strong>Qianyi Chen</strong>, Bo Li, Lu Deng, Yong Wang</p>
+              <p class="publication-item__venue">The 37th Conference on Neural Information Processing Systems (NeurIPS 2023)</p>
+              <div class="paper-links">
+                <a href="https://proceedings.neurips.cc/paper_files/paper/2023/file/760b5def8dcb1156aac454e9c0f5f406-Paper-Conference.pdf">Paper</a>
+                <a href="https://github.com/Cqyiiii/Optimized_Covariance_Design-NIPS2023">Code</a>
+                <a href="/files/OCD_poster_v2.pdf">Poster</a>
+                <a href="/files/OCD_slides.pdf">Slides</a>
+              </div>
+            </div>
+          </article>
+          <article class="publication-item" data-type="working">
+            <div class="publication-item__meta">
+              <span class="venue">Preprint</span>
+              <span class="year">2026</span>
+            </div>
+            <div class="publication-item__body">
+              <h5>COSTA: Covariance-Optimized Design and Causal Inference under Network-Temporal Interference</h5>
+              <p class="authors"><strong>Qianyi Chen</strong>, Bo Li, Yongli Qin, Jinyong Ma</p>
+              <p class="publication-item__venue">Under review at the Journal of the American Statistical Association (JASA)</p>
+              <div class="paper-links">
+                <a href="https://arxiv.org/pdf/2609.02032">Paper</a>
+              </div>
+            </div>
+          </article>
+        </section>
+        <section class="publication-group__subgroup">
+          <h4>Estimation</h4>
+          <article class="publication-item" data-type="conference">
+            <div class="publication-item__meta">
+              <span class="venue">NeurIPS</span>
+              <span class="year">2026</span>
+            </div>
+            <div class="publication-item__body">
+              <h5>Just Ramp-Up: Debiasing Regression-Based Causal Estimation under Network Interference</h5>
+              <p class="authors"><strong>Qianyi Chen</strong>, Bo Li</p>
+              <p class="publication-item__venue">The 40th Annual Conference on Neural Information Processing Systems (NeurIPS 2026)</p>
+              <div class="paper-links">
+                <a href="https://arxiv.org/abs/2410.12740">arXiv</a>
+                <a href="https://github.com/Cqyiiii/Just-Ramp-up">Code</a>
+                <a href="/files/ramp-up.pdf">Slides</a>
+              </div>
+            </div>
+          </article>
+          <article class="publication-item" data-type="conference">
+            <div class="publication-item__meta">
+              <span class="venue">ICLR</span>
+              <span class="year">2026</span>
+            </div>
+            <div class="publication-item__body">
+              <h5>Journey to the Centre of Cluster: Harnessing Interior Nodes for A/B Testing under Network Interference</h5>
+              <p class="authors"><strong>Qianyi Chen</strong>, Anpeng Wu, Bo Li, Lu Deng, Yong Wang</p>
+              <p class="publication-item__venue">The 14th International Conference on Learning Representations (ICLR 2026)</p>
+              <div class="paper-links">
+                <a href="https://arxiv.org/pdf/2602.04457">Paper</a>
+                <a href="https://github.com/Cqyiiii/AMII-Harnessing-Interior-Nodes-for-Network-Experiments">Code</a>
+                <a href="/files/amii-iclr-poster.pdf">Poster</a>
+              </div>
+            </div>
+          </article>
+        </section>
+      </section>
 
-      <article class="publication-item">
-        <div class="publication-item__meta">
-          <span class="venue">ICML</span>
-          <span class="year">2026</span>
-        </div>
-        <div class="publication-item__body">
-          <h3>Colorful Pinball: Density-Weighted Quantile Regression for Conditional Guarantee of Conformal Prediction</h3>
-          <p class="authors"><strong>Qianyi Chen</strong>, Bo Li</p>
-          <p class="publication-item__venue">The 43rd International Conference on Machine Learning (ICML 2026)</p>
-          <div class="paper-links">
-            <a href="https://arxiv.org/abs/2512.24139">arXiv</a>
-            <a href="https://github.com/Cqyiiii/Colorful-Pinball-Conformal-Prediction-CPCP">Code</a>
-            <a href="/files/cpcp_icml_poster_v2.pdf">Poster</a>
+      <section class="publication-group">
+        <h3>Conformal Prediction</h3>
+        <article class="publication-item" data-type="conference">
+          <div class="publication-item__meta">
+            <span class="venue">ICML</span>
+            <span class="year">2026</span>
           </div>
-        </div>
-      </article>
+          <div class="publication-item__body">
+            <h4>Colorful Pinball: Density-Weighted Quantile Regression for Conditional Guarantee of Conformal Prediction</h4>
+            <p class="authors"><strong>Qianyi Chen</strong>, Bo Li</p>
+            <p class="publication-item__venue">The 43rd International Conference on Machine Learning (ICML 2026)</p>
+            <div class="paper-links">
+              <a href="https://arxiv.org/abs/2512.24139">arXiv</a>
+              <a href="https://github.com/Cqyiiii/Colorful-Pinball-Conformal-Prediction-CPCP">Code</a>
+              <a href="/files/cpcp_icml_poster_v2.pdf">Poster</a>
+            </div>
+          </div>
+        </article>
+        <article class="publication-item" data-type="working">
+          <div class="publication-item__meta">
+            <span class="venue">Preprint</span>
+            <span class="year">2026</span>
+          </div>
+          <div class="publication-item__body">
+            <h4>How Synthetic Labels Improve Conformal Prediction: A Perspective on Conditional Coverage</h4>
+            <p class="authors"><strong>Qianyi Chen</strong>, Bo Li</p>
+            <p class="publication-item__venue">Under review</p>
+            <div class="paper-links">
+              <a href="https://arxiv.org/pdf/2609.33482v1">Paper</a>
+              <a href="https://github.com/Cqyiiii/synthetic-label-conformal">Code</a>
+            </div>
+          </div>
+        </article>
+      </section>
 
-      <article class="publication-item">
-        <div class="publication-item__meta">
-          <span class="venue">ICLR</span>
-          <span class="year">2026</span>
-        </div>
-        <div class="publication-item__body">
-          <h3>Journey to the Centre of Cluster: Harnessing Interior Nodes for A/B Testing under Network Interference</h3>
-          <p class="authors"><strong>Qianyi Chen</strong>, Anpeng Wu, Bo Li, Lu Deng, Yong Wang</p>
-          <p class="publication-item__venue">The 14th International Conference on Learning Representations (ICLR 2026)</p>
-          <div class="paper-links">
-            <a href="https://arxiv.org/pdf/2602.04457">Paper</a>
-            <a href="https://github.com/Cqyiiii/AMII-Harnessing-Interior-Nodes-for-Network-Experiments">Code</a>
-            <a href="/files/amii-iclr-poster.pdf">Poster</a>
+      <section class="publication-group">
+        <h3>Policy Learning, LLM Uncertainty Quantification, and Reasoning</h3>
+        <article class="publication-item" data-type="working">
+          <div class="publication-item__meta">
+            <span class="venue">Preprint</span>
+            <span class="year">2025</span>
           </div>
-        </div>
-      </article>
-
-      <article class="publication-item">
-        <div class="publication-item__meta">
-          <span class="venue venue--preprint">Preprint</span>
-          <span class="year">2026</span>
-        </div>
-        <div class="publication-item__body">
-          <h3>How Synthetic Labels Improve Conformal Prediction: A Perspective on Conditional Coverage</h3>
-          <p class="authors"><strong>Qianyi Chen</strong>, Bo Li</p>
-          <p class="publication-item__venue">Under review</p>
-          <div class="paper-links">
-            <a href="https://arxiv.org/pdf/2609.33482v1">Paper</a>
-            <a href="https://github.com/Cqyiiii/synthetic-label-conformal">Code</a>
+          <div class="publication-item__body">
+            <h4>Practical Performative Policy Learning with Strategic Agents</h4>
+            <p class="authors"><strong>Qianyi Chen</strong>, Ying Chen, Bo Li</p>
+            <p class="publication-item__venue">Under review · <em>Presented at INFORMS MSOM 2025, London</em></p>
+            <div class="paper-links">
+              <a href="https://arxiv.org/abs/2412.01344">arXiv</a>
+              <a href="https://github.com/Cqyiiii/Practical-Performative-Policy-Learning-PPPL">Code</a>
+              <a href="/files/pppl.pdf">Slides</a>
+            </div>
           </div>
-        </div>
-      </article>
-
-      <article class="publication-item">
-        <div class="publication-item__meta">
-          <span class="venue venue--preprint">Preprint</span>
-          <span class="year">2026</span>
-        </div>
-        <div class="publication-item__body">
-          <h3>COSTA: Covariance-Optimized Design and Causal Inference under Network-Temporal Interference</h3>
-          <p class="authors"><strong>Qianyi Chen</strong>, Bo Li, Yongli Qin, Jinyong Ma</p>
-          <p class="publication-item__venue">Preprint</p>
-          <div class="paper-links">
-            <a href="https://arxiv.org/pdf/2609.02032">Paper</a>
+        </article>
+        <article class="publication-item" data-type="working">
+          <div class="publication-item__meta">
+            <span class="venue">Working paper</span>
+            <span class="year">2026</span>
           </div>
-        </div>
-      </article>
-
-      <article class="publication-item">
-        <div class="publication-item__meta">
-          <span class="venue venue--preprint">Preprint</span>
-          <span class="year">2025</span>
-        </div>
-        <div class="publication-item__body">
-          <h3>Practical Performative Policy Learning with Strategic Agents</h3>
-          <p class="authors"><strong>Qianyi Chen</strong>, Ying Chen, Bo Li</p>
-          <p class="publication-item__venue">Under review · <em>Presented at INFORMS MSOM 2025, London</em></p>
-          <div class="paper-links">
-            <a href="https://arxiv.org/abs/2412.01344">arXiv</a>
-            <a href="https://github.com/Cqyiiii/Practical-Performative-Policy-Learning-PPPL">Code</a>
-            <a href="/files/pppl.pdf">Slides</a>
+          <div class="publication-item__body">
+            <h4>Decoupling Solving from Abstention: Single-Rollout Conformal Risk Control for Hard-Budget LLM Reasoning</h4>
+            <p class="authors"><strong>Qianyi Chen</strong>, Ying Chen, Bo Li</p>
+            <div class="paper-links">
+              <a href="https://github.com/Cqyiiii/tail-crc/blob/main/Tail-CRC.pdf">Paper</a>
+              <a href="https://github.com/Cqyiiii/tail-crc">Code</a>
+            </div>
           </div>
-        </div>
-      </article>
-
-      <article class="publication-item">
-        <div class="publication-item__meta">
-          <span class="venue">NeurIPS</span>
-          <span class="year">2023</span>
-        </div>
-        <div class="publication-item__body">
-          <h3>Optimized Covariance Design for A/B Test on Social Network under Interference</h3>
-          <p class="authors"><strong>Qianyi Chen</strong>, Bo Li, Lu Deng, Yong Wang</p>
-          <p class="publication-item__venue">The 37th Conference on Neural Information Processing Systems (NeurIPS 2023)</p>
-          <div class="paper-links">
-            <a href="https://proceedings.neurips.cc/paper_files/paper/2023/file/760b5def8dcb1156aac454e9c0f5f406-Paper-Conference.pdf">Paper</a>
-            <a href="https://github.com/Cqyiiii/Optimized_Covariance_Design-NIPS2023">Code</a>
-            <a href="/files/OCD_poster_v2.pdf">Poster</a>
-            <a href="/files/OCD_slides.pdf">Slides</a>
-          </div>
-        </div>
-      </article>
+        </article>
+      </section>
     </div>
   </section>
 

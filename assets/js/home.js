@@ -6,19 +6,23 @@
   const filters = document.querySelector('.publication-filters');
   if (filters && publications.length) {
     const status = document.querySelector('#publication-status');
-    const category = paper => paper.querySelector('.venue--preprint') ? 'preprint' : 'conference';
+    const groups = document.querySelectorAll('.publication-group, .publication-group__subgroup');
+    const matches = (paper, filter) => filter === 'all' || paper.dataset.type === filter;
     filters.hidden = false;
     filters.querySelectorAll('button').forEach(button => {
       const filter = button.dataset.filter;
-      button.querySelector('span').textContent = publications.filter(paper => filter === 'all' || category(paper) === filter).length;
+      button.querySelector('span').textContent = publications.filter(paper => matches(paper, filter)).length;
       button.addEventListener('click', () => {
         filters.querySelectorAll('button').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
         let visible = 0;
         publications.forEach(paper => {
-          paper.hidden = filter !== 'all' && category(paper) !== filter;
+          paper.hidden = !matches(paper, filter);
           if (!paper.hidden) visible++;
         });
-        status.textContent = `Showing ${visible} ${filter === 'all' ? 'publications and preprints' : filter === 'conference' ? 'conference papers' : 'preprints'}.`;
+        groups.forEach(group => {
+          group.hidden = !group.querySelector('.publication-item:not([hidden])');
+        });
+        status.textContent = `Showing ${visible} ${filter === 'all' ? 'publications and working papers' : filter === 'conference' ? 'conference papers' : 'working papers'}.`;
       });
     });
   }
