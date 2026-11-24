@@ -207,14 +207,14 @@ redirect_from:
         </article>
         <article class="publication-item" data-type="working">
           <div class="publication-item__meta">
-            <span class="venue">Working paper</span>
+            <span class="venue">Preprint</span>
             <span class="year">2026</span>
           </div>
           <div class="publication-item__body">
             <h4>Decoupling Solving from Abstention: Single-Rollout Conformal Risk Control for Hard-Budget LLM Reasoning</h4>
             <p class="authors"><strong>Qianyi Chen</strong>, Bo Li</p>
             <div class="paper-links">
-              <a href="https://github.com/Cqyiiii/tail-crc/blob/main/Tail-CRC.pdf">Paper</a>
+              <a href="https://arxiv.org/pdf/2611.31065">arXiv</a>
               <a href="https://github.com/Cqyiiii/tail-crc">Code</a>
             </div>
           </div>
