@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#ffffff">
+<title>Tail-CRC · Decoupling Solving from Abstention</title>
+<meta name="description" content="An interactive companion to Tail-CRC. Explore single-rollout conformal risk control through solver dynamics, token surprise, code transfer, and twelve recorded cases.">
+<link rel="icon" href="assets/mark.svg">
+<link rel="stylesheet" href="assets/katex/katex.min.css"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="sim.css"><link rel="stylesheet" href="labs.css"><link rel="stylesheet" href="code.css">
+<script defer src="assets/katex/katex.min.js"></script><script defer src="math.js"></script><script defer src="data/site-data.js"></script><script defer src="sim.js"></script><script defer src="labs.js"></script><script defer src="code.js"></script><script defer src="page.js"></script>
+</head><body id="top">
+<a class="skip" href="#main">Skip to content</a>
+<header class="mast"><div class="shell mast-in"><a class="brand" href="#top"><img src="assets/mark.svg" width="30" height="30" alt="">Tail-CRC</a>
+<nav class="wide-nav" aria-label="Sections"><a href="#simulator">Simulator</a><a href="#why-decouple">Why Decouple</a><a href="#score-lab">Score Lab</a><a href="#code-transfer">Code Transfer</a><a href="#case-study">Case Study</a><a href="#figures">Figures &amp; Cite</a></nav><details class="small-nav"><summary>Sections</summary><nav aria-label="Sections on mobile"><a href="#simulator">Simulator</a><a href="#why-decouple">Why Decouple</a><a href="#score-lab">Score Lab</a><a href="#code-transfer">Code Transfer</a><a href="#case-study">Case Study</a><a href="#figures">Figures &amp; Cite</a></nav></details></div></header>
+<main id="main" class="shell">
+<section class="opening" aria-labelledby="title"><div class="opening-copy">
+<p class="kicker">Tail-CRC</p><h1 id="title">Decoupling Solving from Abstention</h1><p class="subtitle">Single-rollout conformal risk control for hard-budget LLM reasoning</p>
+<div class="byline"><a href="mailto:cqy22@mails.tsinghua.edu.cn">Qianyi Chen</a><span>·</span><a href="mailto:libo@sem.tsinghua.edu.cn">Bo Li<sup aria-label="corresponding author">*</sup></a></div><p class="affiliation">School of Economics and Management, Tsinghua University</p>
+<div class="actions"><a class="action" href="paper.pdf">Read the paper</a><a class="action" href="https://arxiv.org/abs/2611.31065">arXiv</a><a class="action" href="https://github.com/Cqyiiii/tail-crc">GitHub Code</a><a class="action" href="https://huggingface.co/datasets/Cqyiii/tail-crc-observations">Hugging Face Data</a></div></div></section>
+<div class="tldr"><span>In brief</span><p>Train a solver to finish correct solutions under a hard token cap, then freeze it. Score each answer by its most surprising tokens and calibrate a cutoff on labeled problems to control wrong submissions.</p></div>
+<figure class="opening-figure"><button class="fig-zoom" type="button" data-figure="2" aria-label="Enlarge the train, score and calibrate diagram"><img src="assets/figures/fig_method_overview.webp" width="1960" height="850" alt="Tail-CRC trains a solver on correctness, scores the answer span, and calibrates a submission threshold." fetchpriority="high"></button><figcaption><b>How Tail-CRC works.</b> One rollout supplies both a candidate and the token probabilities used to decide whether to submit it.</figcaption></figure>
+<div class="metric-strip"><article><h3>Correct math submissions</h3><strong>+15.0–29.6 <small>pp · 4B</small></strong><p>Against same-cap budget forcing, 8B gains 4.3–12.8 pp. API costs fall 3.5–12.6%.</p></article><article><h3>Wrong math submissions</h3><strong>30.3% <span data-tex="\to"></span> 5.8%</strong><p>Target calibration on 8B Omni-MATH at 4K. At 8K, wrong submissions fall from 41.8% to 6.5%.</p></article><article><h3>Zero-shot code transfer</h3><strong>+7.2 / +4.5 <small>pp correct</small></strong><p>At 4K / 8K, calibrated net gains are 6.5 / 5.8 pp. At 8K, wrong falls from 11.8% to 4.8% (91.9% precision).</p></article><article><h3>Matched-cap generation</h3><strong>12.56% <small>less time</small></strong><p>8B vs. Native 8K, warm vLLM/A100. Cached check ~26 ns. Offline entropy time excluded.</p></article></div>
+<section id="simulator" class="chapter"><div class="section-intro"><p class="kicker">Deployment simulator</p><h2>Which answers should the solver submit?</h2><p>Choose a benchmark and a token budget, then change the error target or the cost of a mistake. The same rollout can be worth submitting under one policy and worth withholding under another.</p></div><div class="sim" data-sim>
+  <div class="sim-config">
+    <label>Benchmark
+      <select data-sim-domain><option value="Omni-8B">Omni-MATH · 8B</option><option value="DAPO-8B">DAPO · 8B</option><option value="LCB-8B">LiveCodeBench · 8B</option><option value="DAPO-4B">DAPO · 4B</option><option value="Omni-4B">Omni-MATH · 4B</option></select>
+    </label>
+    <label>Token cap
+      <select data-sim-budget><option value="4096">4K</option><option value="8192">8K</option></select>
+    </label>
+    <label data-sim-span-wrap hidden>Scoring span
+      <select data-sim-span><option value="answer">Answer · primary</option><option value="full">Full trace · auxiliary</option></select>
+    </label>
+    <p class="sim-sample" data-sim-sample></p>
+  </div>
+  <div class="sim-sliders">
+    <div class="sim-control">
+      <label>Risk target <span data-tex="\alpha"></span><output data-sim-alpha-read></output><input type="range" aria-label="Calibration risk target" data-sim-alpha></label>
+      <div class="sim-actions"><button type="button" data-sim-anchor>Paper target · <span data-tex="\alpha = 6.5\%"></span></button><button type="button" data-sim-raw>Unfiltered</button></div>
+    </div>
+    <div class="sim-control">
+      <label>Mistake cost <span data-tex="c"></span><output data-sim-cost-read>1.0</output><input type="range" min="0.5" max="4" value="1" step="0.1" aria-label="Mistake cost relative to one correct answer" data-sim-cost></label>
+      <p class="sim-help">One correct submission earns <span data-tex="1"></span>. A wrong one costs <span data-tex="c"></span>. An unsubmitted answer scores <span data-tex="0"></span>.</p>
+    </div>
+  </div>
+  <div class="sim-readout">
+    <div class="sim-readout-heading"><strong>Tail-CRC</strong><span>vs. raw Binary RL</span></div>
+    <dl aria-label="Tail-CRC metrics and changes from raw binary RL">
+      <div><dt>Correct (<span data-tex="R"></span>)</dt><dd><output data-sim-read-r></output><small data-sim-delta-r></small></dd></div>
+      <div><dt>Wrong (<span data-tex="W"></span>)</dt><dd><output data-sim-read-w></output><small data-sim-delta-w></small></dd></div>
+      <div><dt>Precision</dt><dd><output data-sim-read-p></output><small data-sim-delta-p></small></dd></div>
+      <div><dt>Utility (<span data-tex="U_c = R - cW"></span>)</dt><dd><output data-sim-read-u></output><small data-sim-delta-u></small></dd></div>
+    </dl>
+  </div>
+  <div class="sim-tabs" role="tablist" aria-label="Deployment simulator view">
+    <button type="button" role="tab" id="sim-tab-flow" aria-controls="sim-panel-flow" aria-selected="true" tabindex="0" data-sim-tab="flow">1. Answer flow<span class="sim-tab-kind"> (Sankey)</span></button>
+    <button type="button" role="tab" id="sim-tab-frontier" aria-controls="sim-panel-frontier" aria-selected="false" tabindex="-1" data-sim-tab="frontier">2. Risk–coverage<span class="sim-tab-kind"> frontier</span></button>
+    <button type="button" role="tab" id="sim-tab-utility" aria-controls="sim-panel-utility" aria-selected="false" tabindex="-1" data-sim-tab="utility">3. Utility by method</button>
+  </div>
+  <div class="sim-panels">
+    <div class="sim-unit" role="tabpanel" tabindex="0" id="sim-panel-flow" aria-labelledby="sim-tab-flow" data-sim-panel="flow">
+      <div class="sim-flow-head"><span>Raw binary RL</span><span>After submission gate</span></div>
+      <div class="sim-flow" data-sim-flow></div>
+      <p class="sim-note" data-sim-flow-note></p>
+    </div>
+    <div class="sim-unit" role="tabpanel" tabindex="0" id="sim-panel-frontier" aria-labelledby="sim-tab-frontier" data-sim-panel="frontier" hidden>
+      <div class="sim-plot" data-sim-plot></div>
+      <div class="sim-legend" aria-label="Measured policies" data-sim-legend></div>
+      <output class="sim-tip" data-sim-tip aria-live="off"></output>
+      <p class="sim-note" data-sim-plot-note></p>
+    </div>
+    <div class="sim-unit" role="tabpanel" tabindex="0" id="sim-panel-utility" aria-labelledby="sim-tab-utility" data-sim-panel="utility" hidden>
+      <div data-sim-table></div>
+      <p class="sim-note">Rates use all test problems. Precision is conditional on submission. Utility is in points per 100 problems.</p>
+    </div>
+  </div>
+  <p class="sim-insight" data-sim-insight aria-live="polite"></p>
+  <p class="sim-setting" data-sim-setting></p>
+  <section class="sim-method"><h3>Calibration, comparators and supporting tables</h3><p data-sim-method></p><p>Exchangeability gives marginal control for a target chosen before seeing test outcomes. <span class="phrase">A finite test split can exceed that target.</span></p></section>
+  <noscript><p>The interactive controls require JavaScript. Tables 1–4 of the <a href="paper.pdf">paper</a> give the reported operating points.</p></noscript>
+</div>
+</section>
+<section id="why-decouple" class="tl-lab" aria-labelledby="tl-why-heading">
+  <div class="frame">
+    <header class="tl-lead">
+      <p class="tl-kicker">Training dynamics</p>
+      <h2 id="tl-why-heading">Why decouple solving from abstention?</h2>
+      <p>With a penalty for a wrong answer, an unfinished attempt can outscore a wrong submission. The theory isolates when attempts dry up before the solver improves. Training logs show how that incentive appears in practice.</p>
+    </header>
+    <div class="tl-pair">
+      <article class="tl-pane">
+        <h3>Where attempts disappear</h3><p class="tl-sub">Theorem 1 · explanatory model</p>
+        <div class="tl-parameter-strip">
+        <div class="tl-toolbar" data-tl-preset-group aria-label="Penalty presets">
+          <button type="button" data-tl-lambda="0">Binary · <span data-tex="\lambda = 0"></span></button><button type="button" data-tl-lambda="0.25">Mild · <span data-tex="\lambda = 0.25"></span></button><button type="button" data-tl-lambda="1">Penalty · <span data-tex="\lambda = 1"></span></button>
+        </div>
+        <div class="tl-control-pair">
+          <label>Wrong-answer penalty <span data-tex="\lambda"></span> <output id="tl-lambda-val">1.00</output><input id="tl-lambda" type="range" min="0" max="2" step="0.01" value="1"></label>
+          <label>Relative solver rate <span data-tex="\kappa"></span> <output id="tl-kappa-val">0.50</output><input id="tl-kappa" type="range" min="0.25" max="1" step="0.01" value="0.5"></label>
+        </div>
+        </div>
+        <div id="tl-phase" class="tl-chart tl-phase" role="group" tabindex="0" aria-label="Phase plane. Click or drag the initial state. Arrow keys adjust starting quality and attempt probability."></div>
+        <p class="tl-legend"><span><i class="tl-key-dash"></i>Binary reward</span><span><i class="tl-key-bad"></i>Selected penalty</span><span><i class="tl-key-shade"></i>Starvation region</span></p>
+        <p class="tl-tip">Click or drag the dot to choose a starting state. Keyboard: ← → change solver quality; ↑ ↓ change attempts.</p>
+        <div class="tl-conclusion">
+        <div class="tl-verdict" aria-live="polite"><strong id="tl-regime"></strong> <span id="tl-state"></span></div>
+        <p class="tl-read" id="tl-criterion"></p>
+        <div id="tl-boundary" class="formula-strip" hidden></div>
+        <p class="tl-read" id="tl-equation"></p>
+        </div>
+      </article>
+      <article class="tl-pane">
+        <h3>What the training groups did</h3><p class="tl-sub">Qwen3-8B · 50 training updates · 4K budget</p>
+        <div class="tl-training-strip">
+        <div class="tl-toolbar" id="tl-train-tabs" role="group" aria-label="Training metric">
+          <button type="button" data-metric="active">Active groups</button><button type="button" data-metric="unsubmitted">Unsubmitted / truncation</button><button type="button" data-metric="right">Right fraction</button><button type="button" data-metric="tokens">Generated tokens</button>
+        </div>
+        <label class="tl-inspect">Inspect update <output id="tl-step-val">50</output><input id="tl-step" type="range" min="1" max="50" value="50"></label>
+        </div>
+        <p id="tl-train-title" class="tl-mini-title"></p>
+        <div id="tl-training" class="tl-chart" role="group" aria-label="Training curves. Hover to inspect a step or use the slider above."></div>
+        <div id="tl-train-values" class="tl-linekey"></div>
+        <p id="tl-training-note" class="tl-tip"></p>
+        <p id="tl-training-callout" class="tl-explain tl-conclusion"></p>
+      </article>
+    </div>
+    <section class="tl-comparison"><h3>Matched calibration at 4K</h3><p id="tl-win-summary"></p>
+      <p>Net score (<span data-tex="R-W"></span>) subtracts wrong from correct submissions, each as a share of all test families. Each arm is calibrated separately at the same target. Binary RL averages two seeds; each penalty arm uses seed 41.</p>
+      <div class="tl-table-wrap" id="tl-match-table"></div>
+    </section>
+  </div>
+</section>
+<section id="score-lab" class="tl-lab" aria-labelledby="tl-score-heading">
+  <div class="frame">
+    <header class="tl-lead"><p class="tl-kicker">Uncertainty from one rollout</p><h2 id="tl-score-heading">Which token surprises matter?</h2>
+      <p>A sum grows with length. A maximum is vulnerable to one unusual token. Tail NLL averages the highest-surprise tenth of the chosen span. Try those mechanisms on two synthetic sequences, then compare the predictions with the observed math and code results.</p>
+    </header>
+    <article class="tl-sandbox">
+      <h3>Token surprise sandbox</h3><p class="tl-sub">Constructed examples · scores in nats · higher means more uncertain</p>
+      <div class="tl-score-controls">
+      <div id="tl-scenarios" class="tl-toolbar" role="group" aria-label="Synthetic scenario">
+        <button type="button" data-scenario="base">Reference pair</button><button type="button" data-scenario="length">Length reversal</button><button type="button" data-scenario="spike">Lexical spike</button><button type="button" data-scenario="collapse">Quiet background</button>
+      </div>
+          <div class="tl-controls">
+            <label>Correct span length <output id="tl-length-val">20 tokens</output><input id="tl-length" type="range" min="20" max="30" step="1" value="20"></label>
+            <label>Positive lexical spike <output id="tl-spike-val">0.0 nats</output><input id="tl-spike" type="range" min="0" max="7" step="0.1" value="0"></label>
+            <label>Spike token <output id="tl-position-val">4</output><input id="tl-position" type="range" min="1" max="18" step="1" value="4"></label>
+            <label>Background amplitude <output id="tl-background-val">100%</output><input id="tl-background" type="range" min="0" max="100" step="1" value="100"></label>
+          </div>
+      </div>
+      <div class="tl-score-grid">
+        <div class="tl-traces">
+          <div class="tl-token-key"><span>Correct derivation</span><strong id="tl-correct-mass"></strong></div><div id="tl-correct-tokens" class="tl-tokens"></div>
+          <div class="tl-token-key"><span>Wrong derivation</span><strong id="tl-wrong-mass"></strong></div><div id="tl-wrong-tokens" class="tl-tokens"></div>
+          <p class="tl-tip">Each bar is one token; darker bars enter the top tenth. Both rows share a vertical scale. The wrong derivation always has 20 tokens.</p>
+        </div>
+        <div class="tl-score-summary">
+          <h4>Which answer scores as riskier?</h4>
+          <div class="tl-table-wrap" id="tl-score-table"></div>
+          <div class="tl-score-explanation">
+          <p id="tl-score-reading" class="tl-read"></p>
+          <p id="tl-variance" class="tl-read"></p>
+          <div id="tl-ratio" class="formula-strip" hidden></div>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="tl-atlas">
+      <h3>Three empirical regimes</h3>
+      <div class="tl-toolbar" id="tl-atlas-tabs" role="group" aria-label="Empirical score comparison"><button type="button" data-atlas="format">Box &amp; sum failures</button><button type="button" data-atlas="math">Mathematical reasoning</button><button type="button" data-atlas="code">Deterministic code</button></div>
+      <div id="tl-atlas-content" aria-live="polite"></div>
+    </article>
+  </div>
+</section>
+
+<section class="frame chapter lcb-section" id="code-transfer" aria-labelledby="lcb-title">
+  <header class="section-lead">
+    <p class="overline"><span></span>Code transfer</p>
+    <h2 id="lcb-title">Can a math-trained solver write better code?</h2>
+    <p>Two Qwen3-8B checkpoints trained on mathematics wrote Python solutions for held-out LiveCodeBench problems. Each submission had to pass every official public and private test. Calibration used separate, labeled code problems.</p>
+  </header>
+  <div class="lcb-layout">
+    <section class="lcb-main" aria-labelledby="lcb-transfer-heading">
+      <h3 id="lcb-transfer-heading">What transferred from mathematics?</h3>
+      <p class="lcb-intro">Change from the budget-forced base model to the math-trained solver, on the same problems.</p>
+      <div class="lcb-controls">
+    <div class="lcb-control"><span id="lcb-budget-label">Generation cap</span>
+      <div class="lcb-switch" role="group" aria-labelledby="lcb-budget-label">
+        <button type="button" data-lcb-cap="4096" aria-pressed="false">4K</button><button type="button" data-lcb-cap="8192" aria-pressed="true">8K</button>
+      </div>
+    </div>
+    <label class="lcb-control" for="lcb-slice">Test problems
+      <select id="lcb-slice"><option value="main">All test problems (300)</option><option value="year_2023">2023 (97)</option><option value="year_2024">2024 (162)</option><option value="year_2025">2025 · hardest observed (41)</option><option value="errata_excluded">Errata excluded (299)</option></select>
+    </label>
+  </div>
+      <div class="lcb-deltas" data-lcb-deltas></div>
+      <p class="lcb-note" data-lcb-scope></p>
+      <div class="lcb-comparison-heading">
+        <h3>Compare the methods</h3>
+        <label class="lcb-control" for="lcb-metric"><span>Metric</span>
+          <select id="lcb-metric"><option value="Net">Net score</option><option value="R">Correct submissions</option><option value="W">Wrong submissions</option><option value="trunc_rate">Truncation</option><option value="Prec">Submission precision</option><option value="usd">Generation cost</option></select>
+        </label>
+      </div>
+      <p class="lcb-metric-definition" data-lcb-definition></p>
+      <div class="lcb-bars" data-lcb-bars aria-label="Method comparison"></div>
+      <p class="lcb-note">Native 4K replays the first segment of the 8K run. Its cost is the equivalent first-call charge. All other rows use the selected cap and budget forcing. Filtering reuses the generated trajectory.</p>
+      <button class="lcb-spotlight" type="button" data-lcb-spotlight></button>
+    </section>
+    <section class="lcb-aside" aria-label="Mechanism and calibration evidence">
+      <div class="lcb-tabs" role="tablist" aria-label="Explore the code evidence">
+        <button id="lcb-trace-tab" type="button" role="tab" aria-selected="true" aria-controls="lcb-trace-panel" data-lcb-tab="trace">Why the full trace helps</button>
+        <button id="lcb-pilot-tab" type="button" role="tab" aria-selected="false" aria-controls="lcb-pilot-panel" tabindex="-1" data-lcb-tab="pilot">4B pilot &amp; calibration stability</button>
+      </div>
+      <div id="lcb-trace-panel" role="tabpanel" aria-labelledby="lcb-trace-tab" tabindex="0">
+        <h3>When fluent code times out</h3>
+        <p data-lcb-trace-summary></p>
+        <table class="lcb-mini-table"><caption data-lcb-error-caption></caption><thead><tr><th scope="col">First failure</th><th scope="col">Runs</th><th scope="col">Problems</th><th scope="col">Median NLL</th></tr></thead><tbody data-lcb-failures></tbody></table>
+        <p class="lcb-note" data-lcb-failure-note></p>
+        <section class="lcb-details"><h4>How the three spans rank programs</h4><div data-lcb-spans></div></section>
+      </div>
+      <div id="lcb-pilot-panel" role="tabpanel" aria-labelledby="lcb-pilot-tab" tabindex="0" hidden>
+        <h3>How much does the split matter?</h3>
+        <p data-lcb-stability></p>
+        <table class="lcb-mini-table"><caption>Wrong submissions at the 6.5% target</caption><thead><tr><th scope="col">Cap</th><th scope="col">Frozen test</th><th scope="col">Split mean</th><th scope="col">Split SD</th></tr></thead><tbody data-lcb-resplits></tbody></table>
+        <h4>The smaller model often ran out of tokens</h4>
+        <p data-lcb-pilot></p>
+      </div>
+    </section>
+  </div>
+  <p class="lcb-sr-only" aria-live="polite" aria-atomic="true" data-lcb-state></p>
+</section>
+
+<section id="case-study" class="chapter"><div class="section-intro"><p class="kicker">Matched case inspector · Appendix E</p><h2>What passed the cutoff?</h2><p>Follow one of twelve recorded mathematics problems from the prompt to the model’s last tokens. Each score uses its own scale. A score strictly below its calibrated cutoff passes.</p></div>
+<div class="case-group" aria-label="Case categories" role="group"></div>
+<div class="case-sheet"><div class="case-top"><span id="case-meta"></span><div class="case-picker" role="group" aria-label="Choose a case in this category"></div></div>
+<div class="case-main"><h3 id="case-title"></h3><div class="question" id="case-question"></div><div class="reference">Reference answer <span id="case-gold"></span></div></div>
+<div id="case-traces"></div>
+<div class="score-panel"><h4>Score and decision</h4><div id="case-scores"></div><p class="small">Cutoffs were fitted on DAPO for each solver and seed. Bars show each score relative to its cutoff tick.</p></div>
+<div><p class="reading"><span class="caption-lines" id="case-reading"></span></p><section class="raw-prompt"><h4>Original archived question</h4><pre id="case-original"></pre></section></div></div></section>
+<section class="chapter" id="figures"><div class="section-intro"><p class="kicker">Figures &amp; interpretation</p><h2>The paper in figures</h2><p>Eight figures from the manuscript connect the method, its assumptions and the experiments.</p></div>
+<div class="figure-browser"><div role="tablist" aria-label="Paper figures" class="figure-tabs"><button type="button" role="tab" data-figure-tab="1" id="figure-tab-1" aria-controls="figure-1" aria-selected="true" tabindex="0">Fig. 1</button><button type="button" role="tab" data-figure-tab="2" id="figure-tab-2" aria-controls="figure-2" aria-selected="false" tabindex="-1">Fig. 2</button><button type="button" role="tab" data-figure-tab="3" id="figure-tab-3" aria-controls="figure-3" aria-selected="false" tabindex="-1">Fig. 3</button><button type="button" role="tab" data-figure-tab="4" id="figure-tab-4" aria-controls="figure-4" aria-selected="false" tabindex="-1">Fig. 4</button><button type="button" role="tab" data-figure-tab="5" id="figure-tab-5" aria-controls="figure-5" aria-selected="false" tabindex="-1">Fig. 5</button><button type="button" role="tab" data-figure-tab="6" id="figure-tab-6" aria-controls="figure-6" aria-selected="false" tabindex="-1">Fig. 6</button><button type="button" role="tab" data-figure-tab="7" id="figure-tab-7" aria-controls="figure-7" aria-selected="false" tabindex="-1">Fig. 7</button><button type="button" role="tab" data-figure-tab="8" id="figure-tab-8" aria-controls="figure-8" aria-selected="false" tabindex="-1">Fig. 8</button></div><div class="paper-figure" id="figure-1" role="tabpanel" aria-labelledby="figure-tab-1"><figure><button type="button" class="fig-zoom" data-figure="1" aria-label="Enlarge Figure 1, Three outcomes under a hard cap"><img src="assets/figures/fig1_three_state.webp" width="1960" height="878" loading="lazy" alt="Three outcomes under a hard cap. Each bar accounts for every test problem. Gray covers problems with no valid candidate as well as answers the gate rejects. On DAPO, Tail-CRC submits more correct and fewer wrong answers than budget forcing. On Omni-MATH, filtering raw Binary RL cuts wrong submissions from 30.3% to 5.8%, yielding the highest net score shown."></button><figcaption><h3>Three outcomes under a hard cap</h3><p>Each bar accounts for every test problem. Gray covers problems with no valid candidate as well as answers the gate rejects. On DAPO, Tail-CRC submits more correct and fewer wrong answers than budget forcing. On Omni-MATH, filtering raw Binary RL cuts wrong submissions from 30.3% to 5.8%, yielding the highest net score shown.</p></figcaption></figure></div><div class="paper-figure" id="figure-2" role="tabpanel" aria-labelledby="figure-tab-2" hidden><figure><button type="button" class="fig-zoom" data-figure="2" aria-label="Enlarge Figure 2, Train, score, calibrate"><img src="assets/figures/fig_method_overview.webp" width="1960" height="850" loading="lazy" alt="Train, score, calibrate. Binary RL first trains the solver to finish correct answers within the token budget. Once the solver is frozen, Tail NLL takes the two largest token surprises in the 20-token answer shown and averages them. After thinking ends, any answer token can contribute. An offline cutoff fitted on labeled problems determines whether to submit that single rollout."></button><figcaption><h3>Train, score, calibrate</h3><p>Binary RL first trains the solver to finish correct answers within the token budget. Once the solver is frozen, Tail NLL takes the two largest token surprises in the 20-token answer shown and averages them. After thinking ends, any answer token can contribute. An offline cutoff fitted on labeled problems determines whether to submit that single rollout.</p></figcaption></figure></div><div class="paper-figure" id="figure-3" role="tabpanel" aria-labelledby="figure-tab-3" hidden><figure><button type="button" class="fig-zoom" data-figure="3" aria-label="Enlarge Figure 3, From attempts to submission decisions"><img src="assets/figures/fig_theory_intuition.webp" width="1960" height="933" loading="lazy" alt="From attempts to submission decisions. The shaded region marks starting conditions where a wrong-answer penalty drives attempts toward zero. The right panel follows two recorded answers. Box NLL rejects a correct radical on Omni-MATH and accepts a wrong integer on DAPO. With its own DAPO-calibrated cutoff, Tail NLL reverses both decisions."></button><figcaption><h3>From attempts to submission decisions</h3><p>The shaded region marks starting conditions where a wrong-answer penalty drives attempts toward zero. The right panel follows two recorded answers. Box NLL rejects a correct radical on Omni-MATH and accepts a wrong integer on DAPO. With its own DAPO-calibrated cutoff, Tail NLL reverses both decisions.</p></figcaption></figure></div><div class="paper-figure" id="figure-4" role="tabpanel" aria-labelledby="figure-tab-4" hidden><figure><button type="button" class="fig-zoom" data-figure="4" aria-label="Enlarge Figure 4, Risk across the coverage frontier"><img src="assets/figures/fig2_risk_coverage.webp" width="1960" height="1356" loading="lazy" alt="Risk across the coverage frontier. Moving right means more problems receive an answer. Moving down means a smaller share of submitted answers are wrong. Across the four panels, the threshold sweep matches or exceeds coverage with no higher error for seven of eight raw Explicit-Abstain and Mild-Penalty RL points. The exception is Mild-Penalty RL on DAPO at 8K."></button><figcaption><h3>Risk across the coverage frontier</h3><p>Moving right means more problems receive an answer. Moving down means a smaller share of submitted answers are wrong. Across the four panels, the threshold sweep matches or exceeds coverage with no higher error for seven of eight raw Explicit-Abstain and Mild-Penalty RL points. The exception is Mild-Penalty RL on DAPO at 8K.</p></figcaption></figure></div><div class="paper-figure" id="figure-5" role="tabpanel" aria-labelledby="figure-tab-5" hidden><figure><button type="button" class="fig-zoom" data-figure="5" aria-label="Enlarge Figure 5, Anatomy of a surprise score"><img src="assets/figures/fig3_score_anatomy.webp" width="1960" height="840" loading="lazy" alt="Anatomy of a surprise score. For the 4B budget-forced solver on DAPO at 4K, longer correct answers accumulate more surprise. Sum NLL has a wrong-answer AUROC of just 0.111. On Omni-MATH, both Mean NLL and Tail NLL rank errors better than Box NLL. For the gain from tail entropy over Tail NLL, only seven of the 36 paired intervals lie wholly above zero."></button><figcaption><h3>Anatomy of a surprise score</h3><p>For the 4B budget-forced solver on DAPO at 4K, longer correct answers accumulate more surprise. Sum NLL has a wrong-answer AUROC of just 0.111. On Omni-MATH, both Mean NLL and Tail NLL rank errors better than Box NLL. For the gain from tail entropy over Tail NLL, only seven of the 36 paired intervals lie wholly above zero.</p></figcaption></figure></div><div class="paper-figure" id="figure-6" role="tabpanel" aria-labelledby="figure-tab-6" hidden><figure><button type="button" class="fig-zoom" data-figure="6" aria-label="Enlarge Figure 6, Calibrating on the target domain"><img src="assets/figures/fig4_calibration.webp" width="1960" height="768" loading="lazy" alt="Calibrating on the target domain. On Omni-MATH at 4K, wrong submissions account for 30.3% of all problems before filtering, 7.7% with DAPO calibration and 5.8% with Omni calibration. The middle panel counts how often calibration certifies an error limit among submitted answers. The right panel shows how much the wrong-submission rate varies across 2,000 splits at each calibration size."></button><figcaption><h3>Calibrating on the target domain</h3><p>On Omni-MATH at 4K, wrong submissions account for 30.3% of all problems before filtering, 7.7% with DAPO calibration and 5.8% with Omni calibration. The middle panel counts how often calibration certifies an error limit among submitted answers. The right panel shows how much the wrong-submission rate varies across 2,000 splits at each calibration size.</p></figcaption></figure></div><div class="paper-figure" id="figure-7" role="tabpanel" aria-labelledby="figure-tab-7" hidden><figure><button type="button" class="fig-zoom" data-figure="7" aria-label="Enlarge Figure 7, The recovery boundary"><img src="assets/figures/figA_penalty_barrier.webp" width="1960" height="1082" loading="lazy" alt="The recovery boundary. The two trajectories on the right start with a 20% chance of success given an attempt. In this model setting, recovery requires an initial attempt probability above 36%. Starting at 25%, attempts die out. Starting at 50%, both the attempt probability and the chance of success approach one."></button><figcaption><h3>The recovery boundary</h3><p>The two trajectories on the right start with a 20% chance of success given an attempt. In this model setting, recovery requires an initial attempt probability above 36%. Starting at 25%, attempts die out. Starting at 50%, both the attempt probability and the chance of success approach one.</p></figcaption></figure></div><div class="paper-figure" id="figure-8" role="tabpanel" aria-labelledby="figure-tab-8" hidden><figure><button type="button" class="fig-zoom" data-figure="8" aria-label="Enlarge Figure 8, Fifty updates of binary and penalty RL"><img src="assets/figures/figA_training_curves.webp" width="1960" height="1307" loading="lazy" alt="Fifty updates of binary and penalty RL. Each curve shows a trailing five-update mean on the training batches. For seed 41, truncation under Penalty RL falls from 64.9% to 62.7% between the first and last ten updates. Binary RL reaches 47.3% over the final ten. A group can still be active when every attempt fails, provided its rewards differ."></button><figcaption><h3>Fifty updates of binary and penalty RL</h3><p>Each curve shows a trailing five-update mean on the training batches. For seed 41, truncation under Penalty RL falls from 64.9% to 62.7% between the first and last ten updates. Binary RL reaches 47.3% over the final ten. A group can still be active when every attempt fails, provided its rewards differ.</p></figcaption></figure></div></div>
+<div class="appendix-read"><h3>Further checks in the appendix</h3><section><h4>Native decoding after training · Table 7</h4><p>Change in correct submissions for Binary RL versus the base model using uninterrupted decoding. Intervals are family-paired 95% bootstrap intervals, in percentage points.</p><div class="table-wrap"><table><thead><tr><th scope="col">Domain</th><th scope="col">Size</th><th scope="col">Cap</th><th scope="col"><span data-tex="\Delta"></span> correct (pp)</th><th scope="col">95% interval</th></tr></thead><tbody><tr><td>DAPO</td><td>4B</td><td>4K</td><td>+1.60</td><td>[+0.40, +3.00]</td></tr><tr><td>DAPO</td><td>4B</td><td>8K</td><td>+7.20</td><td>[+5.00, +9.60]</td></tr><tr><td>DAPO</td><td>8B</td><td>4K</td><td>+0.60</td><td>[-0.80, +2.20]</td></tr><tr><td>DAPO</td><td>8B</td><td>8K</td><td>-0.40</td><td>[-3.80, +3.00]</td></tr><tr><td>Omni</td><td>4B</td><td>4K</td><td>+2.67</td><td>[+0.33, +5.00]</td></tr><tr><td>Omni</td><td>4B</td><td>8K</td><td>+3.33</td><td>[+1.00, +6.00]</td></tr><tr><td>Omni</td><td>8B</td><td>4K</td><td>+0.33</td><td>[-1.33, +2.00]</td></tr><tr><td>Omni</td><td>8B</td><td>8K</td><td>+0.33</td><td>[-1.67, +2.33]</td></tr></tbody></table></div></section><section><h4>Conditional-error certification · Table 9</h4><p>A separate fixed-grid Learn-then-Test procedure certifies error among submitted answers. The last two columns count issued policies meeting the target on the test set.</p><div class="table-wrap"><table><thead><tr><th scope="col">Domain</th><th scope="col">Score</th><th scope="col">Issued</th><th scope="col">Observed error</th><th scope="col">95% upper bound</th></tr></thead><tbody><tr><td>DAPO</td><td>Answer-mean NLL</td><td>47/72</td><td>47/47</td><td>41/47</td></tr><tr><td>DAPO</td><td>Tail NLL</td><td>49/72</td><td>49/49</td><td>45/49</td></tr><tr><td>Omni</td><td>Answer-mean NLL</td><td>3/72</td><td>3/3</td><td>1/3</td></tr><tr><td>Omni</td><td>Tail NLL</td><td>3/72</td><td>3/3</td><td>0/3</td></tr></tbody></table></div></section><section><h4>Calibration-set size · Table 10</h4><p>Across 16 configurations, the largest calibration set had lower test-risk variability than the smallest in 15. The standard deviation fell or stayed flat at every tested size in 11. These comparisons use repeated splits of fixed pools.</p></section></div>
+<div class="section-intro take-intro"><h3>Practical takeaways</h3></div><div class="takes"><article><h4>API and white-box scores</h4><p>Returned token log probabilities suffice for the default score. A white-box entropy variant needs full-vocabulary probabilities and an additional offline pass.</p></article><article><h4>Cost of target recalibration</h4><p>At the study’s single-seed 8B 4K generation rate, scoring 300 labeled target problems costs about USD 0.73. This estimate covers generation and assumes reference labels are available.</p></article><article><h4>When Native 8K competes</h4><p>Uninterrupted 8B decoding already solves 35.4% of DAPO with 97.8% precision. The value of a tighter cap depends on the cost of withholding and of mistakes.</p></article><article><h4>Scope of the guarantee</h4><p>The bound controls expected wrong submissions per problem for a fixed solver and score under exchangeability. A particular test set can exceed its nominal target.</p></article></div></section>
+<section id="resources" class="chapter closing"><div><p class="kicker">Discussion &amp; resources</p><h2>We welcome discussion, replication, and citation.</h2><p>We’d be glad to hear how Tail-CRC behaves on other tasks, or where you find its assumptions break down. <span class="contact-line">Email <a href="mailto:cqy22@mails.tsinghua.edu.cn">Qianyi Chen</a> or <a href="mailto:libo@sem.tsinghua.edu.cn">Bo Li</a>.</span></p><div class="resource-links"><a class="action" href="paper.pdf">Read the paper</a><a class="action" href="https://arxiv.org/abs/2611.31065">arXiv</a><a class="action" href="https://github.com/Cqyiiii/tail-crc">GitHub Code</a><a class="action" href="https://huggingface.co/datasets/Cqyiii/tail-crc-observations">Hugging Face Data</a></div></div>
+<div class="bib"><div class="bib-head"><span>BibTeX</span><button type="button" id="copy-cite">Copy citation</button></div><pre id="bib">@misc{chen2026tailcrc,
+  title = {Decoupling Solving from Abstention:
+    Single-Rollout Conformal Risk Control
+    for Hard-Budget LLM Reasoning},
+  author = {Chen, Qianyi and Li, Bo},
+  year = {2026},
+  eprint = {2611.31065},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.AI}
+}</pre><div role="status" id="copy-status"></div></div></section>
+</main><footer class="shell footer"><span>Tail-CRC · Tsinghua University</span><span>* Corresponding author · <a href="mailto:libo@sem.tsinghua.edu.cn">libo@sem.tsinghua.edu.cn</a></span></footer>
+<dialog id="image-view" aria-labelledby="image-title"><div class="dialog-tools"><strong id="image-title"></strong><button type="button" id="scale-image" aria-pressed="false">Zoom in</button><button type="button" id="close-image" aria-label="Close figure">Close</button></div><div class="dialog-scroll"><img id="large-figure" alt=""></div><p id="image-caption" class="zoom-caption"></p></dialog>
+</body></html>

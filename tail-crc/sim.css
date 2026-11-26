@@ -1,0 +1,102 @@
+.sim {
+  --s-ink: #172d2c;
+  --s-teal: #135d54;
+  --s-red: #ad5139;
+  --s-blue: #436e83;
+  --s-line: #cbd4ce;
+  --s-text: #4d605a;
+  width: min(100%, 920px);
+  min-width: 0;
+  margin-inline: auto;
+  color: var(--s-ink);
+  font: 16px/1.5 var(--sans, "DM Sans", system-ui, sans-serif);
+  font-variant-numeric: tabular-nums;
+}
+.sim *, .sim *::before, .sim *::after { box-sizing: border-box }
+.sim [hidden] { display: none !important }
+.shell #simulator > .section-intro { margin-bottom: 2rem; }
+.sim-config, .sim-sliders { border-block-end: 1px solid var(--s-line); padding-block: 1rem }
+.sim-config { display: flex; align-items: end; flex-wrap: wrap; gap: .65rem 1.5rem; border-top: 1px solid var(--s-line) }
+.sim-config label { display: grid; gap: .3rem; color: var(--s-text); font-size: 15px; font-weight: 600 }
+.sim select, .sim button { min-height: 40px; padding: .4rem .7rem; border: 1px solid #a2b3ae; border-radius: 3px; background: #fff; color: var(--s-ink); font: inherit; cursor: pointer }
+.sim select { padding-right: 1.35rem }
+.sim .sim-sample { margin: 0 0 .35rem auto; max-width: 100%; color: var(--s-text); font-size: 15px }
+.sim-sliders { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 1rem 2.3rem }
+.sim-control { min-width: 0 }
+.sim-control label { display: block; font-size: 17px; font-weight: 600 }
+.sim-control output { float: right; color: var(--s-teal) }
+.sim input[type=range] { display: block; width: 100%; height: 27px; margin: .2rem 0 .35rem; accent-color: var(--s-teal); cursor: pointer }
+.sim-actions, .sim-legend { display: flex; flex-wrap: wrap; gap: .4rem }
+.sim-actions button { min-height: 34px; font-size: 14px }
+.sim-actions button[aria-pressed=true] { border-color: var(--s-teal); color: var(--s-teal); font-weight: 650 }
+.sim .sim-help, .sim .sim-note, .sim .sim-setting, .sim-method { color: var(--s-text); font-size: 15px; line-height: 1.5 }
+.sim .sim-help { margin: .05rem 0 }
+.sim-readout { display: flex; align-items: center; border-bottom: 1px solid var(--s-line); margin-top: 2rem; padding-block: .85rem; gap: 1.1rem }
+.sim-readout-heading { flex: 0 0 175px; color: var(--s-ink); line-height: 1.22 }
+.sim-readout-heading strong { display: block; font-size: 16px; font-weight: 650 }
+.sim-readout-heading span { display: block; white-space: nowrap; margin-top: .28rem; color: var(--s-text); font-size: 14px }
+.sim-readout dl { flex: 1; display: flex; min-width: 0; margin: 0; gap: .85rem }
+.sim-readout dl > div { flex: 1; min-width: 0 }
+.sim-readout dt { color: var(--s-text); font-size: 14px; font-weight: 550 }
+.sim-readout dd { margin: 0; line-height: 1.2; white-space: nowrap }
+.sim-readout output { display: block; color: var(--s-ink); font-weight: 630; font-size: clamp(1.2rem, 2vw, 1.5rem) }
+.sim-readout small { display: block; color: var(--s-text); font-size: 14px; margin-top: .16rem }
+.sim-readout [data-sim-read-w] { color: var(--s-red) }
+.sim-readout [data-sim-read-u] { color: var(--s-teal) }
+.sim-tabs { display: flex; margin-top: 2rem; border-bottom: 1px solid var(--s-line); gap: .6rem }
+.sim-tabs button { flex: 1; min-width: 0; min-height: 48px; padding: .5rem .3rem .7rem; background: transparent; border: 0; border-bottom: 3px solid transparent; border-radius: 0; text-align: center; color: var(--s-text); line-height: 1.25; font-size: 16px; font-weight: 550 }
+.sim-tabs button[aria-selected=true] { color: var(--s-teal); border-bottom-color: var(--s-teal); font-weight: 700 }
+.sim-tabs button:hover, .sim-legend button:hover { color: var(--s-teal); background: #f3f6f3 }
+.sim-panels { margin: 0; width: 100% }
+.sim-unit { width: 100%; min-width: 0; margin: 0; padding-block: 1rem .45rem }
+.sim-flow-head { display: flex; justify-content: space-between; padding: 0 .3rem; gap: 1rem; font-weight: 600; font-size: 16px; color: var(--s-ink) }
+.sim-flow, .sim-plot { width: 100%; min-width: 0 }
+.sim-flow svg, .sim-plot svg { display: block; width: 100%; height: auto; overflow: visible }
+.sim svg text { font-family: var(--sans, "DM Sans", system-ui, sans-serif); letter-spacing: normal }
+.sim .sim-note { margin: .65rem 0 0; max-width: 100% }
+.sim .sim-flow + .sim-note { margin-top: 26px }
+.sim-tip { display: block; margin: .55rem 0; padding: .35rem 0 .35rem .7rem; min-height: 2.2rem; border-left: 2px solid var(--s-teal); color: var(--s-text); font-size: 15px; line-height: 1.5 }
+.sim-tip strong { color: var(--s-ink); margin-right: .55rem }
+.sim-legend { gap: .08rem .65rem; align-items: center; margin: .6rem 0 .25rem }
+.sim-legend button { border: 0; background: transparent; min-height: 30px; padding: .1rem .25rem; font-size: 14px; line-height: 1.25 }
+.sim-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: .35rem; vertical-align: 1px }
+.sim .sim-t { width: 100%; border-collapse: collapse; font-size: 16px; line-height: 1.35; font-variant-numeric: tabular-nums }
+.sim .sim-t th, .sim .sim-t td { padding: .7rem .4rem; border: 0; border-bottom: 1px solid #dfe5e1; background: none; text-align: right; vertical-align: middle }
+.sim .sim-t th:first-child { padding-left: 0; width: 36%; text-align: left }
+.sim .sim-t thead th { color: var(--s-text); font-weight: 600; font-size: 15px }
+.sim .sim-t tbody th { font-weight: 500 }
+.sim .sim-t td:last-child, .sim .sim-focus { font-weight: 650 }
+.sim .sim-winner td:last-child { text-decoration: underline; text-underline-offset: 4px; color: var(--s-teal) }
+.sim .sim-insight { min-height: calc(3em + .9rem + 1px); padding: .9rem 0 0; margin: .7rem 0 0; border-top: 1px solid var(--s-line); font-size: 17px; max-width: 100% }
+.sim .sim-setting { margin: .45rem 0 .95rem; max-width: 100% }
+.sim-method { margin: 2.25rem 0 0; border-top: 1px solid var(--s-line); padding-top: .7rem }
+.sim-method h3 { margin: 0; font-size: 1.08rem; font-weight: 600; line-height: 1.35 }
+.sim-method p { max-width: 100%; margin: .55rem 0 0 }
+.sim :focus-visible { outline: 2px solid #286b9a; outline-offset: 2px }
+.sim .sim-unit:focus-visible { outline-offset: 3px }
+@media (max-width: 740px) {
+  .sim-readout { display: block }
+  .sim-readout-heading { display: flex; align-items: baseline; gap: .6rem; margin-bottom: .55rem }
+  .sim-readout-heading span { width: auto; max-width: none; margin: 0 }
+  .sim-tabs { gap: .3rem }
+  .sim-tabs button { font-size: 15px }
+  .sim .sim-sample { flex-basis: 100%; margin: 0; max-width: none; font-size: 14px }
+}
+@media (max-width: 540px) {
+  .sim .sim-insight { min-height: calc(4.5em + .9rem + 1px); }
+  .sim-config { gap: .65rem 1rem }
+  .sim-sliders { grid-template-columns: 1fr; gap: .8rem }
+  .sim-readout dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem .8rem }
+  .sim-readout dd { display: flex; align-items: baseline; gap: .35rem; flex-wrap: wrap }
+  .sim-readout dl small { font-size: 13px; margin: 0 }
+  .sim-tabs { margin-top: 2rem; gap: .1rem }
+  .sim-tabs button { font-size: 14px; padding-inline: .2rem }
+  .sim-tab-kind { display: none }
+  .sim-flow-head { font-size: 14px; padding: 0 }
+  .sim-unit { padding-top: 1rem }
+  .sim .sim-t { font-size: 14px }
+  .sim .sim-t th, .sim .sim-t td { padding: .58rem .12rem }
+  .sim .sim-t th:first-child { width: 31% }
+  .sim .sim-t thead th { font-size: 14px }
+  .sim .sim-t .sim-dot { width: 6px; height: 6px; margin-right: .22rem }
+}
