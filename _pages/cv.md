@@ -124,6 +124,7 @@ redirect_from:
           <div>
             <h4><a href="https://arxiv.org/pdf/2611.31065">Decoupling Solving from Abstention: Single-Rollout Conformal Risk Control for Hard-Budget LLM Reasoning</a></h4>
             <p><strong>Qianyi Chen</strong>, Bo Li</p>
+            <p><a href="https://cqyiiii.github.io/tail-crc/">Project Page</a></p>
           </div>
         </div>
       </section>
