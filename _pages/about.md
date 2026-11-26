@@ -216,6 +216,7 @@ redirect_from:
             <div class="paper-links">
               <a href="https://arxiv.org/pdf/2611.31065">arXiv</a>
               <a href="https://github.com/Cqyiiii/tail-crc">Code</a>
+              <a href="https://cqyiiii.github.io/tail-crc/">Project Page</a>
             </div>
           </div>
         </article>
